@@ -23,6 +23,6 @@ if (!array_key_exists($controller, $routes))
 	$controller = "default";
 
 //Den här kan vi behöva komplettera med admin-controllers!!!
-require_once("controllers/".$routes[$controller]);
+require_once("user_controllers/".$routes[$controller]);
 
 // Visa template (kan göras från controller)

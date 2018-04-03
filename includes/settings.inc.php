@@ -4,4 +4,4 @@
 $settings['db']['user'] = "root";
 $settings['db']['password'] = "root";
 $settings['db']['host'] = "localhost";
-$settings['db']['database'] = "wies17_system";
+$settings['db']['database'] = "wies17_projektarbete";
