@@ -25,4 +25,3 @@ if (!array_key_exists($controller, $routes))
 //Den här kan vi behöva komplettera med admin-controllers!!!
 require_once("user_controllers/".$routes[$controller]);
 
-// Visa template (kan göras från controller)
