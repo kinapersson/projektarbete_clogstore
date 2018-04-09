@@ -11,6 +11,8 @@ $routes  = array(
 	'product' => 'product_controller.php',
 	'products' => 'products_controller.php',
 	'thanks' => 'thanks_controller.php',
+	'signIn' => 'sign_in_controller.php',
+	
 );
 
 //Dessa är bara users-controllers, så här måste också admin-controllers in!
