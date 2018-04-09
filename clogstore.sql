@@ -23,16 +23,16 @@ DROP TABLE IF EXISTS `address`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `address` (
-  `ADID` int(11) NOT NULL AUTO_INCREMENT,
-  `Street` varchar(45) DEFAULT NULL,
-  `City` varchar(45) DEFAULT NULL,
-  `Zip code` varchar(45) DEFAULT NULL,
+  `ATID` int(11) NOT NULL,
   `UID` int(11) NOT NULL,
-  PRIMARY KEY (`ADID`,`UID`),
-  KEY `Fk_Userid_idx` (`UID`),
-  CONSTRAINT `Fk_Userid` FOREIGN KEY (`UID`) REFERENCES `user` (`UID`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `fk_ADID` FOREIGN KEY (`ADID`) REFERENCES `addresstype` (`ATID`) ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `Street` varchar(45) COLLATE utf8_unicode_ci NOT NULL,
+  `Zipcode` int(11) NOT NULL,
+  `City` varchar(45) COLLATE utf8_unicode_ci NOT NULL,
+  KEY `fk_address_user_idx` (`UID`),
+  KEY `fk_address_addresstype_idx` (`ATID`),
+  CONSTRAINT `fk_address_addresstype` FOREIGN KEY (`ATID`) REFERENCES `addresstype` (`ATID`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `fk_address_user` FOREIGN KEY (`UID`) REFERENCES `user` (`UID`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -41,6 +41,7 @@ CREATE TABLE `address` (
 
 LOCK TABLES `address` WRITE;
 /*!40000 ALTER TABLE `address` DISABLE KEYS */;
+INSERT INTO `address` VALUES (1,1,'Hejvägen 1',12345,'Stockholm'),(2,1,'Tjavägen 2',12345,'Stockholm'),(1,2,'Hohovägen 3',12345,'Stockholm'),(2,2,'Hohovägen 3',12345,'Stockholm'),(2,3,'Hallåvägen 4',12345,'Stockholm');
 /*!40000 ALTER TABLE `address` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -53,10 +54,9 @@ DROP TABLE IF EXISTS `addresstype`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `addresstype` (
   `ATID` int(11) NOT NULL AUTO_INCREMENT,
-  `Delivery address` varchar(244) DEFAULT NULL,
-  `Invoice address` varchar(244) DEFAULT NULL,
+  `AddressType` varchar(45) COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`ATID`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -65,6 +65,7 @@ CREATE TABLE `addresstype` (
 
 LOCK TABLES `addresstype` WRITE;
 /*!40000 ALTER TABLE `addresstype` DISABLE KEYS */;
+INSERT INTO `addresstype` VALUES (1,'Delivery'),(2,'Invoice');
 /*!40000 ALTER TABLE `addresstype` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -91,6 +92,7 @@ CREATE TABLE `attribute` (
 
 LOCK TABLES `attribute` WRITE;
 /*!40000 ALTER TABLE `attribute` DISABLE KEYS */;
+INSERT INTO `attribute` VALUES (1,1),(2,2),(3,1);
 /*!40000 ALTER TABLE `attribute` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -103,9 +105,9 @@ DROP TABLE IF EXISTS `attributetype`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `attributetype` (
   `ATID` int(11) NOT NULL AUTO_INCREMENT,
-  `AttributeNameType` varchar(45) COLLATE utf8_unicode_ci NOT NULL,
+  `AttributeTypeName` varchar(45) COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`ATID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -114,6 +116,7 @@ CREATE TABLE `attributetype` (
 
 LOCK TABLES `attributetype` WRITE;
 /*!40000 ALTER TABLE `attributetype` DISABLE KEYS */;
+INSERT INTO `attributetype` VALUES (1,'Wood'),(2,'Black');
 /*!40000 ALTER TABLE `attributetype` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -188,7 +191,7 @@ CREATE TABLE `model` (
 
 LOCK TABLES `model` WRITE;
 /*!40000 ALTER TABLE `model` DISABLE KEYS */;
-INSERT INTO `model` VALUES (300,1,39),(301,2,26),(302,3,30);
+INSERT INTO `model` VALUES (1,1,39),(2,2,26),(3,3,30);
 /*!40000 ALTER TABLE `model` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -278,6 +281,7 @@ CREATE TABLE `phone` (
 
 LOCK TABLES `phone` WRITE;
 /*!40000 ALTER TABLE `phone` DISABLE KEYS */;
+INSERT INTO `phone` VALUES (1,1,731234567),(2,2,8123456),(3,1,8123456),(1,2,8123456);
 /*!40000 ALTER TABLE `phone` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -290,9 +294,9 @@ DROP TABLE IF EXISTS `phonetype`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `phonetype` (
   `PTID` int(11) NOT NULL AUTO_INCREMENT,
-  `PhoneNumberType` varchar(45) NOT NULL,
+  `PhoneType` varchar(45) NOT NULL,
   PRIMARY KEY (`PTID`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -301,6 +305,7 @@ CREATE TABLE `phonetype` (
 
 LOCK TABLES `phonetype` WRITE;
 /*!40000 ALTER TABLE `phonetype` DISABLE KEYS */;
+INSERT INTO `phonetype` VALUES (1,'Mobile'),(2,'Work');
 /*!40000 ALTER TABLE `phonetype` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -327,7 +332,7 @@ CREATE TABLE `prodcat` (
 
 LOCK TABLES `prodcat` WRITE;
 /*!40000 ALTER TABLE `prodcat` DISABLE KEYS */;
-INSERT INTO `prodcat` VALUES (1,1);
+INSERT INTO `prodcat` VALUES (1,1),(1,2),(2,3),(3,1);
 /*!40000 ALTER TABLE `prodcat` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -353,7 +358,7 @@ CREATE TABLE `product` (
 
 LOCK TABLES `product` WRITE;
 /*!40000 ALTER TABLE `product` DISABLE KEYS */;
-INSERT INTO `product` VALUES (1,'Moheda-Dam','Tjusig träsandal i äkta läder med justerbart ',999),(2,'Moheda-Molly barn','Träskosandal i läder.Natur träsula',239),(3,'Moheda-Anton herr','Klassisk träsko från Moheda Toffeln. Behöver ',249);
+INSERT INTO `product` VALUES (1,'Moheda Kats','Tjusig träsandal i äkta läder. ',999),(2,'Moheda Molly','Träskosandal i läder.',239),(3,'Moheda Anton','Klassisk träsko.',249);
 /*!40000 ALTER TABLE `product` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -379,7 +384,7 @@ CREATE TABLE `size` (
 
 LOCK TABLES `size` WRITE;
 /*!40000 ALTER TABLE `size` DISABLE KEYS */;
-INSERT INTO `size` VALUES (300,34),(300,34),(300,34),(300,34),(300,34),(301,39),(301,39),(301,39),(302,40),(302,41),(302,42),(302,43),(302,44);
+INSERT INTO `size` VALUES (1,34),(1,34),(1,34),(1,34),(1,34),(2,39),(2,39),(2,39),(3,40),(3,41),(3,42),(3,43),(3,44);
 /*!40000 ALTER TABLE `size` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -420,4 +425,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-04-04 11:45:29
+-- Dump completed on 2018-04-09 12:34:50
