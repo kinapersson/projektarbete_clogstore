@@ -1,6 +1,9 @@
 <?php
 // index.php
 session_start();
+
+//Inkludera header på samtliga sidor:
+
 // Konfigurationer
 require_once("includes/settings.inc.php");
 // Anslut till DB
@@ -22,5 +25,10 @@ $controller = $_GET['controller'] ?? "default";
 if (!array_key_exists($controller, $routes))
 	$controller = "default";
 
+//include_once("templates/header.tpl.php");
 //Den här behöver vi komplettera med admin-controllers!!!
 require_once("user_controllers/".$routes[$controller]);
+
+//include_once("templates/footer.tpl.php");
+// include_once("css/style.css");
+

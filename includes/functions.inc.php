@@ -6,7 +6,9 @@
 * Dessutom gör det att templatedatan finns tillgänglig under samma variabelnamn i ALLA templates.
 */
 function loadTemplate($templateName, $templateData) {
+	require("templates/header.tpl.php");
 	require('templates/'.$templateName.'.tpl.php');
+	require("templates/footer.tpl.php");
 }
 
 
