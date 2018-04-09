@@ -1,8 +1,5 @@
 
 <html>
-    <head>
-    <meta charset="UTF-8">  
-</head>
     <h1>En produktlista</h1>
 
     <?php

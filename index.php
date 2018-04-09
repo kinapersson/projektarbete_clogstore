@@ -22,6 +22,5 @@ $controller = $_GET['controller'] ?? "default";
 if (!array_key_exists($controller, $routes))
 	$controller = "default";
 
-//Den här kan vi behöva komplettera med admin-controllers!!!
+//Den här behöver vi komplettera med admin-controllers!!!
 require_once("user_controllers/".$routes[$controller]);
-
