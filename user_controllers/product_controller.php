@@ -18,8 +18,18 @@ $stmt->execute();
 
 //Och printa med hjälp av den inbyggda funktionen fetchAll():
 
-$result = $stmt->fetch(PDO::FETCH_OBJ);
-loadTemplate("product", $result);
+$product = $stmt->fetch(PDO::FETCH_OBJ);
+
+$sql = "SELECT * FROM size
+        WHERE size.PID = :pid ";
+
+$stmt = $dbh->prepare($sql);
+$stmt->bindParam(':pid', $_GET['pid']);
+$stmt->execute();
+
+$product->sizes = $stmt->fetchAll(PDO::FETCH_OBJ);
+
+loadTemplate("product", $product);
 ?>
 
 
