@@ -2,8 +2,6 @@
 // index.php
 session_start();
 
-//Inkludera header på samtliga sidor:
-
 // Konfigurationer
 require_once("includes/settings.inc.php");
 // Anslut till DB
@@ -23,7 +21,7 @@ require_once("includes/routes.inc.php");
 $controller = $_GET['controller'] ?? "default";
 // Om angiven controller inte finns i vår routesarray, sätt till "default"
 if (!array_key_exists($controller, $routes))
-	$controller = "default";
+	$controller = "frontpage";
 
 //include_once("templates/header.tpl.php");
 //Den här behöver vi komplettera med admin-controllers!!!

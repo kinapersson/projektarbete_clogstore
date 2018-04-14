@@ -3,12 +3,9 @@
 <!-- Single product page where more detailed info will be shown.  -->
 
 <html>
-
     <h1><?php echo $templateData->Title;?></h1>
     <h2><?php echo $templateData->Description;?></h2>
     <h3><?php echo $templateData->Price;?> SEK</h3>
-    <img><?php echo $templateData->Image;?>
-
 <form>
     <p>Size:</p>
     <select>
@@ -27,6 +24,5 @@
 </form>
 
 <button type="button">Add to cart</button>
-
-
+<br>
 </html>
