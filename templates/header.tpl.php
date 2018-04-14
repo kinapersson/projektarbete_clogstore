@@ -9,5 +9,5 @@
 <body>
 
 <div class="header">
-    <h1>CLOGSTORE</h1>
+    <h1><a href="templates/frontpage.tpl.php">CLOGSTORE</a></h1>
 </div>

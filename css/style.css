@@ -6,6 +6,11 @@
     font-size: 1.5rem;
   }
 
+  .header a {
+    text-decoration: none;
+    color: black;
+  }
+
 .footer {
     background-color: rgb(196, 128, 66); 
     padding: 20px 40px;
