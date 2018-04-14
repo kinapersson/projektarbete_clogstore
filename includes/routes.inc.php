@@ -12,6 +12,7 @@ $routes  = array(
 	'products' => 'products_controller.php',
 	'thanks' => 'thanks_controller.php',
 	'signIn' => 'sign_in_controller.php',
+	'getImage' => 'get_image_controller.php,'
 	
 );
 

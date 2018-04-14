@@ -1,8 +1,6 @@
 <?php
 // products_controller.php
 
-echo "Running products controller";
-
 if (isset($_GET['cat'])) {
 
 	// Om det finns en getparameter "cat" hämta produkter med motsvarande kategoriid. 
