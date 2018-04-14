@@ -10,10 +10,10 @@
 <body>
 
 <div class="header">
-    <h1><a href="templates/frontpage.tpl.php">CLOGSTORE</a></h1>
+    <h1><a href="user-controllers/default_controller.php">CLOGSTORE</a></h1>
 
     <ul>
-    <li><a href="templates/frontpage.tpl.php">Home</a></li>
+    <li><a href="user-controllers/default_controller.php">Home</a></li>
     
     <li class="dropdown">
         <a href="" class="dropbtn">Products</a>
@@ -24,8 +24,8 @@
         <a href="#">Kids</a>
         </div>
     
-        <li><a href="templates/cart.tpl.php">Cart</a></li>
-        <li><a href="templates/sign_in.tpl.php">Sign in</a></li>
+        <li><a href="user-controllers/cart-controller.php">Cart</a></li>
+        <li><a href="user-controllers/sign_in_controller.php">Sign in</a></li>
 
     </li>
     </ul>

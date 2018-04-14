@@ -25,6 +25,6 @@
     </select>
 </form>
 
-<button type="button">Add to cart</button>
+<button id="addToCartBtn" type="button">Add to cart</button>
 <br>
 </html>

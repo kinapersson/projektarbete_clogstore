@@ -2,6 +2,7 @@ body {
   background-color: burlywood;
   margin: 0;
   font-family: 'Source Sans Pro', sans-serif;
+  padding: 5px 5px 120px 5px;
 }
 
 
@@ -25,7 +26,6 @@ body {
   .header h1 {
     float: left;
   }
-
 
 .header a {
   text-decoration: none;
@@ -83,17 +83,27 @@ li.dropdown {
 }
 
 
-/*--------------------------------------------- PRODUCT PAGE ---------------------------------- */
+/*--------------------------------------------- PRODUCT RELATED CSS ---------------------------------- */
 #productImage {
   height: 20%;
   width: 20%;
 }
 
+.products {
+  border: 1px solid black;
+}
+
+.productsFrontPage {
+  border: 1px solid black;
+  float: left;
+}
 
 
 
 /*--------------------------------------------- FOOTER ---------------------------------- */
 .footer {
+    position: fixed;
+    height: 50px;
     background-color: rgb(196, 128, 66); 
     padding: 20px 40px;
     font-family: sans-serif;
