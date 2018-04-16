@@ -1,5 +1,6 @@
 <?php
-// products_controller.php
+//default_controller.php
+//Är samma som frontpage_controller.php!
 
 
 	// Om det finns en getparameter "cat" hämta produkter med motsvarande kategoriid. 

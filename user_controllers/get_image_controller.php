@@ -1,4 +1,5 @@
 <?php
+//Denna kod är inte klar! 
 
 $sql = "SELECT * FROM image WHERE image.PID = :pid ";
 

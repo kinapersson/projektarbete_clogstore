@@ -10,22 +10,22 @@
 <body>
 
 <div class="header">
-    <h1><a href="user-controllers/default_controller.php">CLOGSTORE</a></h1>
+    <h1><a href="?controller=default">CLOGSTORE</a></h1>
 
     <ul>
-    <li><a href="user-controllers/default_controller.php">Home</a></li>
+    <li><a href="?controller=default">Home</a></li>
     
     <li class="dropdown">
-        <a href="" class="dropbtn">Products</a>
+        <a href="?controller=products" class="dropbtn">Products</a>
         <div class="dropdown-content">
-        <a href="#">All products</a>
+        <a href="?controller=products">All products</a>
         <a href="#">Men</a>
         <a href="#">Women</a>
         <a href="#">Kids</a>
         </div>
     
-        <li><a href="user-controllers/cart-controller.php">Cart</a></li>
-        <li><a href="user-controllers/sign_in_controller.php">Sign in</a></li>
+        <li><a href="?controller=cart">Cart</a></li>
+        <li><a href="?controller=sign_in">Sign in</a></li>
 
     </li>
     </ul>

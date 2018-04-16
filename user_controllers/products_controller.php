@@ -26,8 +26,6 @@ if (isset($_GET['cat'])) {
 // Lagra resultatet från frågan i variabel
 $productsData = $stmt->fetchAll(PDO::FETCH_OBJ);
 
-// Ladda template
-// require('templates/products.tpl.php');
 
 // För att göra laddningen flexiblare används en funktion för templateladdning. (finns i includes/functions.inc.php)
 loadTemplate("products", $productsData);

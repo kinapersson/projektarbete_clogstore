@@ -7,12 +7,12 @@ $routes  = array(
 	'confirmation' => 'confirmation_controller.php',
 	'default' => 'default_controller.php',
 	'frontpage' => 'frontpage_controller.php',
-	'myAccount' => 'my_account_controller.php',
+	'my_account' => 'my_account_controller.php',
 	'product' => 'product_controller.php',
 	'products' => 'products_controller.php',
 	'thanks' => 'thanks_controller.php',
-	'signIn' => 'sign_in_controller.php',
-	'getImage' => 'get_image_controller.php,'
+	'sign_in' => 'sign_in_controller.php',
+	'get_image' => 'get_image_controller.php,'
 	
 );
 

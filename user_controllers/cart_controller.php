@@ -10,3 +10,4 @@ $data = "Running cart_controller.php";
 
 // Avsluta controllers med att ladda template om det ska göras.
 loadTemplate('cart', $data);
+echo $data;
