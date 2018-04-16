@@ -6,7 +6,6 @@ $routes  = array(
 	'checkout' => 'checkout_controller.php',
 	'confirmation' => 'confirmation_controller.php',
 	'default' => 'default_controller.php',
-	'frontpage' => 'frontpage_controller.php',
 	'my_account' => 'my_account_controller.php',
 	'product' => 'product_controller.php',
 	'products' => 'products_controller.php',

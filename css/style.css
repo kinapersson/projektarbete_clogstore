@@ -103,7 +103,7 @@ li.dropdown {
 /*--------------------------------------------- FOOTER ---------------------------------- */
 .footer {
     position: fixed;
-    height: 50px;
+    height: 40px;
     background-color: rgb(196, 128, 66); 
     padding: 20px 40px;
     font-family: sans-serif;

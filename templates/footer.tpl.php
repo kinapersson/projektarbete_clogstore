@@ -1,5 +1,6 @@
 <div class="footer">
-    <p>Footer goes here</p>
+    <p>Contact us:</p>
+    <a href="#">Admin login</a>
 </div>
 
 </body>
