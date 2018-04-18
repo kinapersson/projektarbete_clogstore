@@ -1,6 +1,7 @@
 <?php
 
-echo "Running cart_controller.php";
+// Controllerns jobb är att fylla denna med data:
+$data = "Running cart_controller.php";
 
 switch ($_GET['action'] ?? null) {
     case "add":
@@ -62,3 +63,13 @@ echo "<pre>";
 var_dump($_SESSION);
 
 header("Location: ".$_SERVER['HTTP_REFERER']);
+
+
+//Cart-systemet ska upp här genom cart-classen!
+
+
+
+// Avsluta controllers med att ladda template om det ska göras.
+// loadTemplate('cart', $data);
+// echo $data;
+

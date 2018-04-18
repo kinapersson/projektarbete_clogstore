@@ -1,8 +1,6 @@
 <?php
 // products_controller.php
 
-echo "Running products controller";
-
 if (isset($_GET['cat'])) {
 
 	// Om det finns en getparameter "cat" hämta produkter med motsvarande kategoriid. 
@@ -28,8 +26,6 @@ if (isset($_GET['cat'])) {
 // Lagra resultatet från frågan i variabel
 $productsData = $stmt->fetchAll(PDO::FETCH_OBJ);
 
-// Ladda template
-// require('templates/products.tpl.php');
 
 // För att göra laddningen flexiblare används en funktion för templateladdning. (finns i includes/functions.inc.php)
 loadTemplate("products", $productsData);
