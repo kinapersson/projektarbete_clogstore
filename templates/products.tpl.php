@@ -1,7 +1,11 @@
 
 <html>
 
-    <h1>(Print the right category)</h1>
+    <h1><?php if(isset($_GET['cat'])) {
+        echo $templateData[0]->title;
+    } else {
+        echo "All products";
+    } ?></h1>
 
     <?php
     foreach($templateData as $product) :

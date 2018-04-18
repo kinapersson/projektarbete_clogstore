@@ -19,9 +19,9 @@
         <a href="?controller=products" class="dropbtn">Products</a>
         <div class="dropdown-content">
         <a href="?controller=products">All products</a>
-        <a href="#">Men</a>
-        <a href="#">Women</a>
-        <a href="#">Kids</a>
+        <a href="?controller=products&cat=1">Men</a>
+        <a href="?controller=products&cat=2">Women</a>
+        <a href="?controller=products&cat=3">Kids</a>
         </div>
     
         <li><a href="?controller=cart">Cart</a></li>

@@ -20,9 +20,9 @@ $stmt = $dbh->prepare($sql);
 $stmt->bindParam(':pid', $_GET['pid']);
 $stmt->execute();
 
-$product->sizes = $stmt->fetchAll(PDO::FETCH_OBJ);
+// $product->sizes = $stmt->fetchAll(PDO::FETCH_OBJ);
 
-
+//Hämtar bild:
 //Denna vill vi förmodligen lägga i en egen controller!!!
 $sql = "SELECT ImageURL FROM image
         WHERE image.PID = :pid ";

@@ -1,14 +1,16 @@
 <?php
-//Denna kod är inte klar! 
+//Denna kod är inte klar och körs inte från någon sida (finns dock i product-controllern) 
 
-$sql = "SELECT * FROM image WHERE image.PID = :pid ";
+$sql = "SELECT ImageURL FROM image
+        WHERE image.PID = :pid ";
 
 $stmt = $dbh->prepare($sql);
 $stmt->bindParam(':pid', $_GET['pid']);
 $stmt->execute();
-$product = $stmt->fetch(PDO::FETCH_OBJ);
+
+$product->Image = $stmt->fetch(PDO::FETCH_OBJ);
 
 
-  //header("Content-type: image/jpeg");
-  echo $product['ImageURL'];
+//Laddar rätt template:
+loadTemplate("product", $product);
 ?>
