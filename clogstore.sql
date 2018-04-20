@@ -1,6 +1,6 @@
 -- MySQL dump 10.13  Distrib 5.7.17, for Win64 (x86_64)
 --
--- Host: 127.0.0.1    Database: wies17_projektarbete
+-- Host: 127.0.0.1    Database: clogstore
 -- ------------------------------------------------------
 -- Server version	5.6.34-log
 
@@ -131,7 +131,7 @@ CREATE TABLE `category` (
   `catid` int(11) NOT NULL AUTO_INCREMENT,
   `title` varchar(45) NOT NULL,
   PRIMARY KEY (`catid`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -140,7 +140,7 @@ CREATE TABLE `category` (
 
 LOCK TABLES `category` WRITE;
 /*!40000 ALTER TABLE `category` DISABLE KEYS */;
-INSERT INTO `category` VALUES (1,'Dam'),(2,'Herr'),(3,'Barn');
+INSERT INTO `category` VALUES (1,'Dam'),(2,'Herr'),(3,'Barn'),(4,'Featured Products');
 /*!40000 ALTER TABLE `category` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -303,7 +303,7 @@ CREATE TABLE `prodcat` (
 
 LOCK TABLES `prodcat` WRITE;
 /*!40000 ALTER TABLE `prodcat` DISABLE KEYS */;
-INSERT INTO `prodcat` VALUES (1,1),(1,2),(2,2),(3,3);
+INSERT INTO `prodcat` VALUES (1,1),(1,2),(2,3),(3,1),(3,4),(1,4);
 /*!40000 ALTER TABLE `prodcat` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -329,7 +329,7 @@ CREATE TABLE `product` (
 
 LOCK TABLES `product` WRITE;
 /*!40000 ALTER TABLE `product` DISABLE KEYS */;
-INSERT INTO `product` VALUES (1,'Moheda Kats','Nice women\'s clog ',999),(2,'Moheda Molly','Nice kids clog',239),(3,'Moheda Anton','Nice men\'s clog',249);
+INSERT INTO `product` VALUES (1,'Moheda Kats','Tjusig träsandal i äkta läder. ',999),(2,'Moheda Molly','Träskosandal i läder.',239),(3,'Moheda Anton','Klassisk träsko.',249);
 /*!40000 ALTER TABLE `product` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -342,11 +342,11 @@ DROP TABLE IF EXISTS `size`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `size` (
   `PID` int(11) NOT NULL,
-  `Size` float NOT NULL,
+  `Size` int(11) NOT NULL,
   `Stock` int(10) unsigned DEFAULT NULL,
   KEY `FK_size_product_idx` (`PID`),
   CONSTRAINT `FK_size_product` FOREIGN KEY (`PID`) REFERENCES `product` (`PID`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -355,7 +355,7 @@ CREATE TABLE `size` (
 
 LOCK TABLES `size` WRITE;
 /*!40000 ALTER TABLE `size` DISABLE KEYS */;
-INSERT INTO `size` VALUES (1,34,0),(1,35,0),(1,36,0),(1,37,10),(1,38,0),(2,25,3),(2,26,3),(3,40,20),(3,41,9),(3,42,1);
+INSERT INTO `size` VALUES (1,32,21),(1,33,5),(2,37,6),(2,38,9),(2,39,0),(3,40,0),(3,41,34),(3,42,6);
 /*!40000 ALTER TABLE `size` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -396,4 +396,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-04-14 16:24:35
+-- Dump completed on 2018-04-20 13:17:11
