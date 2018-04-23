@@ -2,7 +2,6 @@ body {
   background-color: burlywood;
   margin: 0;
   font-family: 'Source Sans Pro', sans-serif;
-  padding: 5px 5px 120px 5px;
 }
 
 
@@ -87,19 +86,14 @@ li.dropdown {
   width: 300px;
 }
 
-.productImage :after {
-  display: block;
-  clear: both;
-}
 .productImage {
   float: left;
   width: 300px;
 }
 
 .productDetails {
-  float: right;
   width: 300px;
-  margin-right: 1000px;
+  height: 800px;
 }
 
 .products {
