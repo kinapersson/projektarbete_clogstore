@@ -1,7 +1,7 @@
 <?php
 // routes.inc.php
 
-$isAdmin = true;
+$isAdmin = false;
 // admin controllers
 if($isAdmin == true){
 	$routes = array(
