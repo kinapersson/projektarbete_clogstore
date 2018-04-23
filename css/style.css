@@ -89,15 +89,17 @@ li.dropdown {
 .productImage {
   float: left;
   width: 300px;
+  padding: 20px;
 }
 
 .productDetails {
+  padding: 20px;
   width: 300px;
   height: 800px;
+  float: left;
 }
 
 .products {
-  border: 1px solid black;
   float: left;
   padding: 30px;
   height: 250px;
