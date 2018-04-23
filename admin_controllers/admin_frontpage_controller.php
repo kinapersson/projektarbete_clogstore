@@ -1,0 +1,5 @@
+<?php
+
+loadTemplate("frontpage", "");
+
+?>
