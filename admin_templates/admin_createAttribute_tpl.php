@@ -3,7 +3,6 @@
     <div class="col-lg-9 col-md-12 col-sm-12 col-sx-12">
       <div id="respond">
       <?php echo $templateData->get_response();?>
-      <?php echo var_dump($templateData->get_response()); ?>
         <form method="post" action="?controller=createAttribute">
           <div class="form-group">
             <label name="labelCreateAttribute">Skapa ett attribut</label>

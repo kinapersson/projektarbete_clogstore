@@ -1,5 +1,0 @@
-<?php
-
-loadTemplate("editCategory", $editCategory);
-
-?>

@@ -43,7 +43,6 @@
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
           <a class="dropdown-item" href="?controller=createCategory">Skapa kategori</a>
           <a class="dropdown-item" href="?controller=deleteCategory">Ta bort kategori</a>
-          <a class="dropdown-item" href="?controller=editCategory">Redigera kategori</a>
         </div>
       </li>
       <li class="nav-item dropdown">
@@ -53,17 +52,6 @@
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
           <a class="dropdown-item" href="?controller=createAttribute">Skapa attribut</a>
           <a class="dropdown-item" href="?controller=deleteAttribute">Ta bort attribut</a>
-          <a class="dropdown-item" href="?controller=editAttribute">Redigera attribut</a>
-        </div>
-      </li>
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Hantera bild
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          <a class="dropdown-item" href="?controller=createImage">Skapa bild</a>
-          <a class="dropdown-item" href="?controller=deleteImage">Ta bort bild</a>
-          <a class="dropdown-item" href="?controller=editImage">Redigera bild</a>
         </div>
       </li>
     </ul>

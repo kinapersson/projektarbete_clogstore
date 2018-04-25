@@ -76,11 +76,14 @@ if(isset($_POST['productTitle'])){
     $createProductTitle = $pvm->get_productTitle();
     $createProductDescription = $pvm->get_productDescription();
     $createProductPrice = $pvm->get_productPrice();
-    $sql = "INSERT INTO product (Title, Description, Price) VALUES ('$createProductTitle', '$createProductDescription', '$createProductPrice')";
+    $sql = "INSERT INTO product (Title, Description, Price) VALUES (:title, '$createProductDescription', '$createProductPrice')";
     $stmt = $dbh->prepare($sql);
-    // $stmt->bindParam(':title', $createCategoryName);
+    $stmt->bindParam(':title', $createCategoryName);
     $stmt->execute();
 
+$newprodid = $dbh->lastInsertId();
+$sql = "INSERT INTO image (PID, ImageUrl) values (:pid, :imgurl)";
+// bindPram(":pid", $newprodid); 
     generate_response("sucess", $message_sent);
     $_POST['productTitle'] = "";
     $_POST['productDescription'] = "";
