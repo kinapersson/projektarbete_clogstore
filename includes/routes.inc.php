@@ -1,7 +1,7 @@
 <?php
 // routes.inc.php
 
-$isAdmin = true;
+$isAdmin = false;
 // admin controllers
 if($isAdmin == true){
 	$routes = array(
@@ -32,7 +32,7 @@ else{
 		'products' => 'products_controller.php',
 		'thanks' => 'thanks_controller.php',
 		'sign_in' => 'sign_in_controller.php',
-		'get_image' => 'get_image_controller.php,'
+		'get_image' => 'get_image_controller.php',
 	);
 }
 

@@ -1,17 +1,12 @@
-
-
-<!-- Single product page where more detailed info will be shown.  -->
-
 <html>
     <div class="productImage">
-        <img id="productImage" src="data:image/jpeg;base64, <?php echo base64_encode($templateData->Image->ImageURL); ?>"/>
+        <img id="productImage" src="<?php echo $templateData->Image->ImageURL; ?>"/>
     </div>
     
     <div class="productDetails">
         <h1><?php echo $templateData->Title;?></h1>
         <h2><?php echo $templateData->Description;?></h2>
         <h3><?php echo $templateData->Price;?> SEK</h3>
-
 
         <form>
             <p>Size:</p>
@@ -25,7 +20,7 @@
                 }
             ?>
             </select>
-            </form>
+        </form>
 
 <h2>Lägg i varukorg</h2>
 <form method="post" action="?controller=cart&action=add">

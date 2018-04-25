@@ -31,7 +31,7 @@ $stmt = $dbh->prepare($sql);
 $stmt->bindParam(':pid', $_GET['pid']);
 $stmt->execute();
 
-$product->Image = $stmt->fetch(PDO::FETCH_OBJ);
+$product->Image = $stmt->fetch(PDO::FETCH_ASSOC);
 
 
 //Laddar rätt template:
