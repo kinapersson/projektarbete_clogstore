@@ -17,18 +17,6 @@ $productsData = $stmt->fetchAll(PDO::FETCH_OBJ);
 
 
 
-//Hämtar ut rätt bild:
-
-
-
-//Printa ut rätt kategorinamn som titel:
-//OBS ej klar!
-// $sql = "SELECT title FROM category WHERE category.catid = 4";
-// $stmt = $dbh->prepare($sql); 
-// $stmt->execute();
-
-// $categoryData = $stmt->fetchAll(PDO::FETCH_OBJ);
-
 
 // För att göra laddningen flexiblare används en funktion för templateladdning. (finns i includes/functions.inc.php)
 loadTemplate("default", $productsData);

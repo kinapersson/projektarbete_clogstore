@@ -1,6 +1,6 @@
 <html>
     <div class="productImage">
-        <img id="productImage" src="<?php echo $templateData->Image->ImageURL; ?>"/>
+        <img id="productImage" src="<?php echo $templateData->Image; ?>"/>
     </div>
     
     <div class="productDetails">

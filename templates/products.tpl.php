@@ -12,6 +12,7 @@
     ?>
 
 <div class="products">
+<img id="productImage" src="<?php echo $product->Image ?>"/>
     <h2>
         <a href="?controller=product&pid=<?php echo $product->PID;?>">
             <?php echo $product->Title;
