@@ -25,7 +25,13 @@
         </div>
     
         <li><a href="?controller=cart">Cart</a></li>
-        <li><a href="?controller=sign_in">Sign in</a></li>
+        
+        <li class="dropdown">
+        <a href="?controller=sign_in" class="dropbtn">Sign in</a>
+        <div class="dropdown-content">
+        <a href="?controller=sign_in">Customer</a>
+        <a href="?controller=sign_in">Admin</a>
+        </div>
 
     </li>
     </ul>
