@@ -5,8 +5,7 @@
         if(isset($_GET['cat'])) {
             echo $templateData[0]->title;
         } else {
-        
-        echo "All products";
+            echo "All products";
         }?>
     </h1>
 
