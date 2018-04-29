@@ -17,7 +17,7 @@
 <body>
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <a class="navbar-brand" href="?controller=frontpage">Clogstore</a>
+  <a class="navbar-brand" href="?controller=frontpage">Clogstore Admin</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -53,6 +53,14 @@
           <a class="dropdown-item" href="?controller=createAttribute">Skapa attribut</a>
           <a class="dropdown-item" href="?controller=deleteAttribute">Ta bort attribut</a>
         </div>
+        <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Hantera ordrar
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <a class="dropdown-item" href="?controller=manageOrders">Hantera ordrar</a>
+        </div>
+      </li>
       </li>
     </ul>
   </div>

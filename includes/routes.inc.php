@@ -1,7 +1,7 @@
 <?php
 // routes.inc.php
 
-$isAdmin = false;
+$isAdmin = true;
 // admin controllers
 if($isAdmin == true){
 	$routes = array(
@@ -13,6 +13,7 @@ if($isAdmin == true){
 		// 'editProduct' => 'admin_editProduct_controller.php',
 		'createAttribute' => 'admin_createAttribute_controller.php',
 		'deleteAttribute' => 'admin_deleteAttribute_controller.php',
+		'manageOrders' => 'admin_manageOrders_controller.php'
 	);
 }
 // user controllers
