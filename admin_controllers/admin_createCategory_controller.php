@@ -38,15 +38,16 @@ if(isset($_POST['categoryName'])){
   // validate presence of createCategori
   if(empty($cvm->get_categoryName())){
       $cvm->generate_response("error", $missing_createCategory);
-  }  else{ // ready to go
+  }  
+  else{ // ready to go
     $createCategoryName = $cvm->get_categoryName();
     $sql = "INSERT INTO category (title) VALUES ('$createCategoryName')";
     $stmt = $dbh->prepare($sql);
     $stmt->bindParam(':title', $createCategoryName);
     $stmt->execute();
-
-   $cvm->generate_response("success", $message_sent);
-    $_POST['categoryName'] = "";
+    
+    $cvm->generate_response("success", $message_sent);
+    // $cvm = new categoryViewModel();
   }
 }
 

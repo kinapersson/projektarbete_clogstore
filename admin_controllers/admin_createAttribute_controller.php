@@ -38,15 +38,16 @@ if(isset($_POST['attributeName'])){
   // validate presence of createAttribute
   if(empty($avm->get_attributeName())){
       $cvm->generate_response("error", $missing_createAttribute);
-  }  else{ // ready to go
+  }  
+  else{ // ready to go
     $createAttributeName = $avm->get_attributeName();
     $sql = "INSERT INTO attributetype (AttributeNameType) VALUES ('$createAttributeName')";
     $stmt = $dbh->prepare($sql);
     $stmt->bindParam(':title', $createAttributeName);
     $stmt->execute();
-
-   $avm->generate_response("success", $message_sent);
-    $_POST['attributeName'] = "";
+    
+    $avm->generate_response("success", $message_sent);
+    // $avm = new attributeViewModel();
   }
 }
 

@@ -6,7 +6,7 @@
         <form method="post" action="?controller=createAttribute">
           <div class="form-group">
             <label name="labelCreateAttribute">Skapa ett attribut</label>
-            <input name="attributeName" type="text" class="form-control" placeholder="Skriv in ett attribut"/>
+            <input name="attributeName" type="text" class="form-control" placeholder="Skriv in ett attribut" value="<?php echo $templateData->get_attributeName(); ?>"/>
           </div>
           <button type="submit" class="btn btn-primary">Skapa</button>
         </form>

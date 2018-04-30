@@ -6,7 +6,7 @@
         <form method="post" action="?controller=createCategory">
           <div class="form-group">
             <label name="labelCreateCategori">Skapa en kategori</label>
-            <input name="categoryName" type="text" class="form-control" placeholder="Skriv in ett kategorinamn"/>
+            <input name="categoryName" type="text" class="form-control" placeholder="Skriv in ett kategorinamn" value="<?php echo $templateData->get_categoryName(); ?>"/>
           </div>
           <button type="submit" class="btn btn-primary">Skapa</button>
         </form>
