@@ -1,18 +1,16 @@
-
-
-<!-- Single product page where more detailed info will be shown.  -->
-
 <html>
+    <!-- Hämtar rätt bild -->
     <div class="productImage">
-        <img id="productImage" src="data:image/jpeg;base64, <?php echo base64_encode($templateData->Image->ImageURL); ?>"/>
+        <img id="productImage" src="<?php echo $templateData->Image; ?>"/>
     </div>
     
+    <!-- Printar ut aktuell produkt och dess attribut -->
     <div class="productDetails">
         <h1><?php echo $templateData->Title;?></h1>
         <h2><?php echo $templateData->Description;?></h2>
         <h3><?php echo $templateData->Price;?> SEK</h3>
 
-
+        <!-- Loopar ut tillgängliga storlekar från DB i en select-lista -->
         <form>
             <p>Size:</p>
             <select>
@@ -25,7 +23,7 @@
                 }
             ?>
             </select>
-            </form>
+        </form>
 
 <h2>Lägg i varukorg</h2>
 <form method="post" action="?controller=cart&action=add">

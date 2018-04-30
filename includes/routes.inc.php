@@ -13,6 +13,7 @@ if($isAdmin == true){
 		'deleteCategory' => 'admin_deleteCategory_controller.php',
 		'createAttribute' => 'admin_createAttribute_controller.php',
 		'deleteAttribute' => 'admin_deleteAttribute_controller.php',
+		'manageOrders' => 'admin_manageOrders_controller.php'
 	);
 }
 // user controllers
@@ -28,7 +29,10 @@ else{
 		'thanks' => 'thanks_controller.php',
 		'sign_in' => 'sign_in_controller.php',
 		'get_image' => 'get_image_controller.php',
+<<<<<<< HEAD
 		'log_in' => 'log_in_controller.php',
+=======
+>>>>>>> 086b1a69448a39ec1262dc69d583472cdcb7252c
 	);
 }
 
