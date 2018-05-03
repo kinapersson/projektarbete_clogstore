@@ -15,7 +15,7 @@ require_once("includes/routes.inc.php");
 
 // 1. Koll om personen loggar in som admin eller användare
 // 2. Laddar upp controllers för vilken roll
-$isAdmin = true;
+$isAdmin = false;
 if($isAdmin == true){
 	$controller = $_GET['controller'] ?? "frontpage";
 	if (!array_key_exists($controller, $routes))
