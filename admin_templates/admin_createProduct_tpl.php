@@ -19,7 +19,6 @@
               <a class="btn btn-success dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Kategorier
               </a>
-
               <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                 <?php
                 foreach($templateData->get_loadCategories() as $showCategories){
@@ -40,7 +39,6 @@
               <a class="btn btn-success dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Attribut
               </a>
-
               <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                 <?php
                 foreach($templateData->get_loadAttributes() as $showAttributes){
@@ -55,6 +53,7 @@
                 ?>
               </div>
             </div>
+            
           </div>
           <button type="submit" class="btn btn-primary">Skapa</button>
         </form>

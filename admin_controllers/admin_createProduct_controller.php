@@ -123,7 +123,7 @@ if(isset($_POST['productTitle'])){
       $stmt->execute();
     }
 
-    // saves which categories the product has
+    // saves which attributes the product has
     foreach ($productAttributes as $att)
     {
       $sql = "INSERT INTO attribute (PID, ATID) VALUES ('$newProdId', '$att')";
