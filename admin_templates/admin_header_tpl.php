@@ -61,7 +61,6 @@
           <a class="dropdown-item" href="?controller=manageOrders">Hantera ordrar</a>
         </div>
       </li>
-      </li>
     </ul>
   </div>
 </nav>
