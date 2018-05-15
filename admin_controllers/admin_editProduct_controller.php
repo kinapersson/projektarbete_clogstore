@@ -29,9 +29,7 @@ class productViewModel{
 function editProduct(){
     global $dbh;
 
-    // hur får jag denna?
-    $id = $_POST['editID'];
-
+    $id = $_POST['productId'];
     $updateProductTitle = $_POST['productTitle'];
     $updateProductDescription = $_POST['productDescription'];
     $updateProductPrice = $_POST['productPrice'];
@@ -39,22 +37,28 @@ function editProduct(){
     $updateAddCategories = $_POST['addCategories'];
     $updateAddAttributes = $_POST['addAttributes'];
 
-    $sql = "UPDATE product SET Title = $updateProductTitle, Description = $updateProductDescription,  Price = $updateProductPrice, Image = $updateProductImage WHERE PID = $id";
+    $sql = "UPDATE product SET Title = '$updateProductTitle', Description = '$updateProductDescription',  Price = '$updateProductPrice', Image = '$updateProductImage' WHERE PID = '$id'";
     $stmt = $dbh->prepare($sql);
     $stmt->execute();
 
+    $sql = "DELETE FROM prodcat WHERE pid = $id";
+    $stmt = $dbh->prepare($sql);
+    $stmt->execute();
     foreach ($updateAddCategories as $cat)
     {
-      $sql = "INSERT INTO prodcat (pid, catid) VALUES ('$id', '$cat')";
-      $stmt = $dbh->prepare($sql);
-      $stmt->execute();
+        $sql = "INSERT INTO prodcat (pid, catid) VALUES ('$id', '$cat')";
+        $stmt = $dbh->prepare($sql);
+        $stmt->execute();
     }
 
+    $sql = "DELETE FROM attribute WHERE PID = $id";
+    $stmt = $dbh->prepare($sql);
+    $stmt->execute();
     foreach ($updateAddAttributes as $att)
     {
-      $sql = "INSERT INTO attribute (PID, ATID) VALUES ('$id', '$att')";
-      $stmt = $dbh->prepare($sql);
-      $stmt->execute();
+        $sql = "INSERT INTO attribute (PID, ATID) VALUES ('$id', '$att')";
+        $stmt = $dbh->prepare($sql);
+        $stmt->execute();
     }
 }
 if(isset($_POST['productTitle'])){
