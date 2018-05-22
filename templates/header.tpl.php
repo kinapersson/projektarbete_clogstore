@@ -29,11 +29,11 @@
         <li class="dropdown">
         <a href="?controller=sign_in" class="dropbtn">Sign in</a>
         <div class="dropdown-content">
-        <a href="?controller=sign_in">Customer</a>
+            <a href="?controller=log_in">Customer</a>
         <a href="?controller=sign_in">Admin</a>
         </div>
-
     </li>
+        <li><?php if (isset($_SESSION['u_id'])){ echo '<a href="?controller=log_out">Logout';}?></a></li>
     </ul>
 
 </div>
