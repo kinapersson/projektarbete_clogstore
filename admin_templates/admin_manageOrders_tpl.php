@@ -2,7 +2,7 @@
   <div class="wrapper">
     <div class="col-lg-9 col-md-12 col-sm-12 col-sx-12">
       <div id="respond">
-        <form method="post" action="?controller=deleteCategory">
+        <form method="post" action="?controller=manageOrders">
           <div class="form-group">
             <table class="table table-sm table-dark">
                 <thead>
@@ -43,7 +43,10 @@
                                 <?php echo $showOrders->PaymentMethod ?>
                             </td>
                             <td>
-                                <button type="submit" name="removeID" class="btn btn-danger float-right" value="<?php echo $showOrders->OID; ?>">Delete</button>
+                                <button type="submit" name="removeID" onclick="return confirm('Är du säker?')" class="btn btn-danger float-right" value="<?php echo $showOrders->OID; ?>">Delete</button>
+                            </td>
+                            <td>
+                                <button type="submit" name="editID" class="btn btn-default float-right" value="<?php echo $showOrders->OID; ?>">Edit</button>
                             </td>
                         </tr>
                     <?php
