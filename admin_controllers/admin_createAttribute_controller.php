@@ -37,7 +37,7 @@ if(isset($_POST['attributeName'])){
 
   // validate presence of createAttribute
   if(empty($avm->get_attributeName())){
-      $cvm->generate_response("error", $missing_createAttribute);
+      $avm->generate_response("error", $missing_createAttribute);
   }  
   else{ // ready to go
     $createAttributeName = $avm->get_attributeName();

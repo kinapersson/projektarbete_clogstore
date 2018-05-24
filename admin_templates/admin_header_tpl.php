@@ -61,6 +61,16 @@
           <a class="dropdown-item" href="?controller=manageOrders">Hantera ordrar</a>
         </div>
       </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Hantera användare
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <a class="dropdown-item" href="?controller=createUser">Skapa användare</a>
+          <a class="dropdown-item" href="?controller=deleteUser">Ta bort användare</a>
+          <a class="dropdown-item" href="?controller=editUser">Redigera användare</a>
+        </div>
+      </li>
     </ul>
   </div>
 </nav>

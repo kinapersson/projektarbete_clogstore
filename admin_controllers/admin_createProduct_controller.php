@@ -62,6 +62,26 @@ class productViewModel{
     return $this->productImage;
   }
 
+  // new productCategories
+  public $productCategories = "";
+
+  function set_productCategories($new_productCategories){
+    $this->productCategories = $new_productCategories;
+  }
+  function get_productCategories(){
+    return $this->productCategories;
+  }
+
+    // new productAttributes
+    public $productAttributes = "";
+
+    function set_productAttributes($new_productAttributes){
+      $this->productAttributes = $new_productAttributes;
+    }
+    function get_productAttributes(){
+      return $this->productAttributes;
+    }
+
   public function generate_response($type, $message){
     if($type == "success") $this->set_response("<div class='alert alert-success text-center'>{$message}</div>");
     else $this->set_response("<div class='alert alert-danger text-center'>{$message}</div>");
@@ -76,6 +96,8 @@ if(isset($_POST['productTitle'])){
   $missing_productDescription = "Du har ej fyllt i en beskrivning";
   $missing_productPrice = "Du har ej fyllt i ett pris";
   $missing_productImage = "Du har ej fyllt i en bild";
+  $missing_productCategories = "Du har ej fyllt i en kategori";
+  $missing_productAttributes = "Du har ej fyllt i ett attribut";
   $message_sent = "Nu har kategorin sparats i databasen";
 
   // user posted variables
@@ -83,8 +105,10 @@ if(isset($_POST['productTitle'])){
   $pvm->set_productDescription($_POST['productDescription']);
   $pvm->set_productPrice($_POST['productPrice']);
   $pvm->set_productImage($_POST['productImage']);
-  $productCategories = $_POST['addCategories'];
-  $productAttributes = $_POST['addAttributes'];
+  $pvm->set_productCategories($_POST['addCategories']);
+  $pvm->set_productAttributes($_POST['addAttributes']);
+  // $productCategories = $_POST['addCategories'];
+  // $productAttributes = $_POST['addAttributes'];
 
   // validate presence of productTitle
   if(empty($pvm->get_productTitle())){
@@ -102,6 +126,14 @@ if(isset($_POST['productTitle'])){
   else if(empty($pvm->get_productImage())){
     $pvm->generate_response("error", $missing_productImage);
   }
+  // validate presence of addCategories
+  else if(empty($pvm->get_productCategories())){
+    $pvm->generate_response("error", $missing_productCategories);
+  }
+  // validate presence of addAttributes
+  else if(empty($pvm->get_productAttributes())){
+    $pvm->generate_response("error", $missing_productAttributes);
+  }
   else{ // ready to go
     // saves the information to the product tabel
     $createProductTitle = $pvm->get_productTitle();
@@ -116,7 +148,8 @@ if(isset($_POST['productTitle'])){
     $newProdId = $dbh->lastInsertId();
 
     // saves which categories the product has
-    foreach ($productCategories as $cat)
+    $createProductCategories = $pvm->get_productCategories();
+    foreach ($createProductCategories as $cat)
     {
       $sql = "INSERT INTO prodcat (pid, catid) VALUES ('$newProdId', '$cat')";
       $stmt = $dbh->prepare($sql);
@@ -124,7 +157,8 @@ if(isset($_POST['productTitle'])){
     }
 
     // saves which attributes the product has
-    foreach ($productAttributes as $att)
+    $createProductAttributes = $pvm->get_productAttributes();
+    foreach ($createProductAttributes as $att)
     {
       $sql = "INSERT INTO attribute (PID, ATID) VALUES ('$newProdId', '$att')";
       $stmt = $dbh->prepare($sql);
