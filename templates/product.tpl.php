@@ -31,9 +31,20 @@
   <?php
            
             printf('<input type="hidden" name="newCartItem[pid]" value="%s">',$templateData->PID);
-            print('<input type="text" name="newCartItem[antal]" value="1">');
+            print('<input type="hidden" name="newCartItem[antal]" value="1">');
 ?>
     <button id="addToCartBtn" type="submit">Lägg till kundvagn</button>
+
+<?php   
+    if (isset($_SESSION['prodAdded'])) { 
+        unset($_SESSION['prodAdded']);
+    ?>
+
+<p><div class='alert alert-info'>
+            <p>Product was added to your cart
+</div></p>
+
+<?php    } ?>
 </form>
 
     </div>
