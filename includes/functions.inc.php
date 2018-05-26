@@ -6,7 +6,7 @@
 * Dessutom gör det att templatedatan finns tillgänglig under samma variabelnamn i ALLA templates.
 */
 
-$isAdmin = true;
+$isAdmin = false;
 // admin templates
 if ($isAdmin == true){
 	function loadTemplate($templateName, $templateData) {
