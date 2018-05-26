@@ -20,11 +20,14 @@ switch ($_GET['action'] ?? null) {
         // Att sätta antal mindre än 1 på en produkt tar bort den från varukorgen
         if ($_SESSION['cart'][$pid] < 1) unset($_SESSION['cart'][$pid]);
 
+        $_SESSION['prodAdded'] = true;
+        header("Location:".$_SERVER['HTTP_REFERER']);
         break;
 
     case "remove":
         $pid = $_GET['pid'] ?? null;
         unset($_SESSION['cart'][$pid]);
+        header("Location:".$_SERVER['HTTP_REFERER']);
         break;
     case "updateCart":
 
@@ -54,22 +57,24 @@ switch ($_GET['action'] ?? null) {
         break;
 
     default:
-        echo "Matchar ingen action";
+      //  echo "Matchar ingen action";
 }
 
 
 
-echo "<pre>";
+/*echo "<pre>";
 var_dump($_SESSION);
+*/
+// header("Location: ".$_SERVER['HTTP_REFERER']);
 
-header("Location: ".$_SERVER['HTTP_REFERER']);
 
 
 //Cart-systemet ska upp här genom cart-classen!
 
 
-
 // Avsluta controllers med att ladda template om det ska göras.
-// loadTemplate('cart', $data);
+loadTemplate('cart', '$data');
+
+
 // echo $data;
 
