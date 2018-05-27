@@ -1,23 +1,50 @@
-<h2>Kundvagnen innehåller</h2>
+<section class="container fluid" id="cart_module" style="padding-top:25px">
+   <div class="col-lg-12 col-md-12 col-sm-12 col-sx-12">
+
+   
+<h2>Cart</h2>
+    
+
 <form method="post" action="?controller=cart&action=updateCart">
     <ul>
     <?php
-        $cartSum = 0;
-        while ($product = $stmt->fetch(PDO::FETCH_OBJ)) {
 
-            $antal = $_SESSION['cart'][$product->pid];
-           // var_dump($product);
+        $cartSum = 0;
+        global $cartData;
+
+       // while ($product = $stmt->fetch(PDO::FETCH_OBJ)) {
+
+          echo "<div class='cart-row'>";
+            echo "<div class='col-md-8'>";
+
+            foreach ($cartData as $key => $product) {
+           
+            $antal = $_SESSION['cart'][$product->PID];
+           
+
             print('<li>');
-            printf('Produktid: %s Titel: %s', $product->pid, $product->title);
-            printf('<input type="text" name="cartItems[%s]" value="%s">',$product->pid, $antal);
-            printf('<a href="?controller=cart&action=remove&pid=%s">Ta bort</a>', $product->pid);
-            printf(' à pris: %s', $product->price);
-            printf(' radsumma: %s', $product->price * $antal);
+
+
+            printf($product->Title);
+            echo "<br>";
+            printf($product->Description);
+            echo "<br>";
+
+            printf('<input type="text" name="cartItems[%s]" value="%s">',$product->PID, $antal);
+            echo "<br>";
+  
+            printf('<a href="?controller=cart&action=remove&pid=%s">Ta bort</a>', $product->PID);
+            echo "<br>";
+            printf(' Pris: %s', $product->Price);
+            echo "<br>";
+            printf(' Totalt: %s', $product->Price * $antal);
             print('</li>');
 
-            $cartSum += $product->price * $antal;
-    } // while fetch()
 
+
+            $cartSum += $product->Price * $antal;
+    } // while fetch()
+/*
          foreach($_SESSION['cart'] as $pid => $amount) {
             print('<li>');
             printf('Produktid: %s', $pid);
@@ -25,9 +52,26 @@
             printf('<a href="?controller=cart&action=remove&pid=%s">Ta bort</a>', $pid);
             print('</li>');
         }
+        */
 
     ?>
     </ul>
-    <?php printf('Totalsumma: %s', $cartSum); ?>
+    <?php 
+
+    echo "<div class='col-md-12'>";
+
+
+        printf('Totalsumma: %s', $cartSum); ?>
     <button type="submit">Uppdatera kundvagn</button>
+</div>
 </form>
+</div>
+
+
+    <div class='col-md-4'>  
+            <a href='?controller=checkout' class='btn btn-success m-b-10px'>
+                 <span class='glyphicon glyphicon-shopping-cart'></span> Proceed to Checkout</a>
+    </div>
+</div>
+
+
