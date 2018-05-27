@@ -17,6 +17,7 @@ if($isAdmin == true){
 		'createUser' => 'admin_createUser_controller.php',
 		'deleteUser' => 'admin_deleteUser_controller.php',
 		'editUser' => 'admin_editUser_controller.php',
+		'editFooter' => 'admin_editFooter_controller.php',
 	);
 }
 // user controllers
@@ -26,13 +27,20 @@ else{
 		'checkout' => 'checkout_controller.php',
 		'confirmation' => 'confirmation_controller.php',
 		'default' => 'default_controller.php',
-		'my_account' => 'my_account_controller.php',
-		'product' => 'product_controller.php',
-		'products' => 'products_controller.php',
-		'thanks' => 'thanks_controller.php',
-		'sign_in' => 'sign_in_controller.php',
-		'get_image' => 'get_image_controller.php',
+		'footer' => 'footer_controller.php',
 		'header' => 'header_controller.php',
+		'log_in' => 'log_in_controller.php',
+		'my_account' => 'my_account_controller.php',
+		'order_history' => 'order_history_controller.php',
+		'product' => 'product_controller.php',
+		'products' => 'products_controller.php',	
+		'sign_in' => 'sign_in_controller.php',
+		'sign_up' => 'sign_up_controller.php',
+		'thanks' => 'thanks_controller.php',
+		'user_delete' => 'user_delete_controller.php',
+		
+	
+
 	);
 }
 
