@@ -1,8 +1,5 @@
 <?php
 
-// Controllerns jobb är att fylla denna med data:
-$data = "Running cart_controller.php";
-
 switch ($_GET['action'] ?? null) {
     case "add":
     case "set":
@@ -39,38 +36,14 @@ switch ($_GET['action'] ?? null) {
         break;
 
     case "display":
-        /*
-        * Testkod för att dela en kundvagn. Inte komplett...
-        */
-        /*
-        echo "foo";
-        $sql = "SELECT * FROM carts WHERE idcarts = :cartid";
-        $stmt = $dbh->prepare($sql);
-        $stmt->bindParam(':cartid', $_GET['cartid']);
-        $stmt->execute();
-
-        var_dump($stmt->fetchAll(PDO::FETCH_ASSOC));
-*/
-        
+         
         var_dump($_SESSION['cart']);
 
         break;
 
     default:
-      //  echo "Matchar ingen action";
+     
 }
-
-
-
-/*echo "<pre>";
-var_dump($_SESSION);
-*/
-// header("Location: ".$_SERVER['HTTP_REFERER']);
-
-
-
-//Cart-systemet ska upp här genom cart-classen!
-
 
 // Avsluta controllers med att ladda template om det ska göras.
 loadTemplate('cart', '$data');
