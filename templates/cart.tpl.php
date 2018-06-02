@@ -14,8 +14,7 @@
 
        // while ($product = $stmt->fetch(PDO::FETCH_OBJ)) {
 
-          echo "<div class='cart-row'>";
-            echo "<div class='col-md-8'>";
+          
 
             foreach ($cartData as $key => $product) {
            
@@ -33,11 +32,13 @@
             printf('<input type="text" name="cartItems[%s]" value="%s">',$product->PID, $antal);
             echo "<br>";
   
-            printf('<a href="?controller=cart&action=remove&pid=%s">Ta bort</a>', $product->PID);
+           
             echo "<br>";
             printf(' Pris: %s', $product->Price);
             echo "<br>";
             printf(' Totalt: %s', $product->Price * $antal);
+            echo "<br>";
+            printf('<a href="?controller=cart&action=remove&pid=%s" class="btn btn-danger m-b-10px">Ta bort</a>', $product->PID);
             print('</li>');
 
 
@@ -60,9 +61,8 @@
 
     echo "<div class='col-md-12'>";
 
-
         printf('Totalsumma: %s', $cartSum); ?>
-    <button type="submit">Uppdatera kundvagn</button>
+    <button type="submit" class="btn btn-info">Update Cart</button>
 </div>
 </form>
 </div>
