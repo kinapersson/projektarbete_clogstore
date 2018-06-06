@@ -25,15 +25,14 @@
             </select>
         </form>
 
-<h2>Lägg i varukorg</h2>
+<!-- Add to Cart -->
+
 <form method="post" action="?controller=cart&action=add">
-  
   <?php
-           
-            printf('<input type="hidden" name="newCartItem[pid]" value="%s">',$templateData->PID);
-            print('<input type="hidden" name="newCartItem[antal]" value="1">');
+        printf('<input type="hidden" name="newCartItem[pid]" value="%s">',$templateData->PID);
+        print('<input type="hidden" name="newCartItem[antal]" value="1">');
 ?>
-    <button id="addToCartBtn" type="submit">Lägg till kundvagn</button>
+    <button id="addToCartBtn" class="btn btn-primary" type="submit">Add to Cart</button>
 
 <?php   
     if (isset($_SESSION['prodAdded'])) { 
