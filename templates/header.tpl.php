@@ -45,6 +45,7 @@
 
 </div>
 
+<!-- dessa avslutas i footern -->
 <div class="container-fluid main-content"><div class="row">
     
 
