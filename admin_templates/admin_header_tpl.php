@@ -71,6 +71,9 @@
           <a class="dropdown-item" href="?controller=editUser">Redigera användare</a>
         </div>
       </li>
+      <li class="nav-item">
+        <a class="nav-link" href="?controller=editPage">Redigera Om Oss</a>
+      </li>
     </ul>
   </div>
 </nav>

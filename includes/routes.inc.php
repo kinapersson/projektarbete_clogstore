@@ -1,7 +1,7 @@
 <?php
 // routes.inc.php
 
-$isAdmin = false;
+$isAdmin = true;
 // admin controllers
 if($isAdmin == true){
 	$routes = array(
@@ -18,6 +18,7 @@ if($isAdmin == true){
 		'deleteUser' => 'admin_deleteUser_controller.php',
 		'editUser' => 'admin_editUser_controller.php',
 		'editFooter' => 'admin_editFooter_controller.php',
+		'editPage' => 'admin_editPage_controller.php',
 	);
 }
 // user controllers
