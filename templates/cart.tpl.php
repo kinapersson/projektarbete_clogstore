@@ -73,5 +73,3 @@
                  <span class='glyphicon glyphicon-shopping-cart'></span> Proceed to Checkout</a>
     </div>
 </div>
-
-

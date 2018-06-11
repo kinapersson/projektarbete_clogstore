@@ -17,37 +17,32 @@
                     ?>
                         <tr>
                             <td>
-                                <?php echo $showUsers->Name  ?>
+                                <?php echo $showUsers->name  ?>
                             </td>
                             <td>
-                                <button type="button" name="editID" class="btn btn-info float-right" data-toggle="modal" data-target="#myModal<?php echo $showUsers->UID; ?>">Edit</button>
+                                <button type="button" name="editID" class="btn btn-info float-right" data-toggle="modal" data-target="#myModal<?php echo $showUsers->uid; ?>">Edit</button>
                                 
                                 <!-- Modal -->
-                                <div id="myModal<?php echo $showUsers->UID; ?>" class="modal fade" role="dialog">
+                                <div id="myModal<?php echo $showUsers->uid; ?>" class="modal fade" role="dialog">
                                 <div class="modal-dialog">
                                 
                                 <!-- Modal content-->
                                 <div class="modal-content">
                                     <form method="post" action="?controller=editUser">
                                     <div class="modal-header">
-                                        <h4 class="modal-title"><?php echo $showUsers->Name ?></h4>
+                                        <h4 class="modal-title"><?php echo $showUsers->name ?></h4>
                                     </div>
                                     
                                     <div class="modal-body">
                                         <div class="form-group">
-                                            <input name="userId" type="hidden" class="form-control" value="<?php echo $showUsers->UID; ?>"/>
+                                            <input name="userId" type="hidden" class="form-control" value="<?php echo $showUsers->uid; ?>"/>
                                             <label name="labelCreateName">Skapa ett användarnamn</label>
-                                            <input name="userName" type="text" class="form-control" placeholder="Skriv in ett namn" value="<?php echo $showUsers->Name; ?>"/>
+                                            <input name="userName" type="text" class="form-control" placeholder="Skriv in ett namn" value="<?php echo $showUsers->name; ?>"/>
                                             <label name="labelCreateEmail">Lägg till epost</label>
-                                            <input name="userEmail" type="text" class="form-control" placeholder="Skriv in en email" value="<?php echo $showUsers->Email; ?>"/>
+                                            <input name="userEmail" type="text" class="form-control" placeholder="Skriv in en email" value="<?php echo $showUsers->email; ?>"/>
+                                            <label name="labelCreatePhone">Lägg till nummer</label>
+                                            <input name="userNumber" type="text" class="form-control" placeholder="Skriv in ett mobilnummer" value="<?php echo $showUsers->phone?>"/>
 
-                                            <!-- lägg till nummer -->
-                                            <label name="labelCreatePhoneNumber">Lägg till mobilnummer</label>
-                                            <input name="userMobileNumber" type="text" class="form-control" placeholder="Skriv in ett mobilnummer" value="<?php ?>"/>
-                                            <label name="labelCreateWorkNumber">Lägg till arbetsnummer</label>
-                                            <input name="userWorkNumber" type="text" class="form-control" placeholder="Skriv in ett arbetsnummer" value="<?php ?>"/>
-
-                                            <!-- lägg till adresser -->
                                             <label name="labelCreateAddressDelivery">Lägg till en leverans adress</label>
                                             <input name="userAddressDelivery" type="text" class="form-control" placeholder="Skriv in en leverans adress" value="<?php ?>"/>
                                             <label name="labelCreateZipcodeDelivery">Lägg till ett leverans postnummer</label>
@@ -63,9 +58,9 @@
                                             <input name="userCityInvoice" type="text" class="form-control" placeholder="Skriv in en faktura stad" value="<?php ?>"/>
 
                                             <label name="labelCreatePassword">Skapa ett lösenord</label>
-                                            <input name="userPassword" type="text" class="form-control" placeholder="Skriv in ett lösenord" value="<?php echo $showUsers->Password; ?>"/>
+                                            <input name="userPassword" type="text" class="form-control" placeholder="Skriv in ett lösenord" value="<?php echo $showUsers->password; ?>"/>
                                             <label name="labelCreateIsAdmin">Skapa en behörighet</label>
-                                            <input name="userIsAdmin" type="text" class="form-control" placeholder="Skriv in admin eller user" value="<?php echo $showUsers->IsAdmin; ?>"/>
+                                            <input name="userIsAdmin" type="text" class="form-control" placeholder="Skriv in admin eller user" value="<?php echo $showUsers->userlevel; ?>"/>
                                         </div>
                                     </div>
                                 <div class="modal-footer">

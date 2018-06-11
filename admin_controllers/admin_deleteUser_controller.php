@@ -4,15 +4,17 @@ function removeUser(){
     global $dbh;
     $id = $_POST['removeID'];
 
+    /*
     $sql = "DELETE FROM phone WHERE UID='$id'";
     $stmt = $dbh->prepare($sql);
     $stmt->execute();
+    */
 
     $sql = "DELETE FROM address WHERE UID='$id'";
     $stmt = $dbh->prepare($sql);
     $stmt->execute();
 
-    $sql = "DELETE FROM user WHERE UID='$id'";
+    $sql = "DELETE FROM user WHERE uid='$id'";
     $stmt = $dbh->prepare($sql);
     $stmt->execute();
 }

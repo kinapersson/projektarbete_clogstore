@@ -10,10 +10,6 @@ require_once("includes/db.inc.php");
 // Inkludera fil med hjälpfunktioner
 require_once("includes/functions.inc.php");
 
-// Ladda rätt controller
- require_once "includes/cart.inc.php";
-// var_dump($_SESSION['cart']);
-
 // Läs in fil med definierade routes
 require_once("includes/routes.inc.php");
 
@@ -28,6 +24,8 @@ if($isAdmin == true){
 	require_once("admin_controllers/".$routes[$controller]);
 }
 else{
+	require_once("includes/cart.inc.php");
+
 	// Om det finns någon getparameter controller:
 	$controller = $_GET['controller'] ?? "default";
 	// Om angiven controller inte finns i vår routesarray, sätt till "default"

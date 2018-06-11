@@ -8,6 +8,7 @@
 
 $isAdmin = true;
 // admin templates
+// ($user->isUserAdmin)
 if ($isAdmin == true){
 	function loadTemplate($templateName, $templateData) {
 		require("admin_templates/admin_header_tpl.php");
