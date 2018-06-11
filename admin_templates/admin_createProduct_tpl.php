@@ -3,7 +3,7 @@
     <div class="col-lg-9 col-md-12 col-sm-12 col-sx-12">
       <div id="respond">
       <?php echo $templateData->get_response();?>
-        <form method="post" action="?controller=createProduct">
+        <form method="post" action="?controller=createProduct" enctype="multipart/form-data">
           <div class="form-group">
             <label name="labelCreateTitle">Skriv in produktens titel</label>
             <input name="productTitle" type="text" class="form-control" placeholder="Titel" value="<?php echo $templateData->get_productTitle(); ?>"/>
@@ -11,9 +11,8 @@
             <input name="productDescription" type="text" class="form-control" placeholder="Beskrivning" value="<?php echo $templateData->get_productDescription(); ?>"/>
             <label name="labelCreatePrice">Skriv in produktens pris</label>
             <input name="productPrice" type="text" class="form-control" placeholder="Pris" value="<?php echo $templateData->get_productPrice(); ?>"/>
-            <label name="labelCreateImage">Skriv in produktens bildnamn</label>
-            <input name="productImage" type="text" class="form-control" placeholder="Bild" value="<?php echo $templateData->get_productImage(); ?>"/>
-
+            <label name="labelCreateImage">Ladda upp bild</label>
+            <input name="productImage" type="file" class="form-control" placeholder="Bild" value="<?php echo $templateData->get_productImage(); ?>"/>
             <label name="labelCreateProductCategories">Välj kategorier till produkten</label>
             <div class="dropdown show">
               <a class="btn btn-success dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

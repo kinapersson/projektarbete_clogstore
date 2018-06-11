@@ -56,8 +56,21 @@ class productViewModel{
   public $productImage = "";
 
   function set_productImage($new_productImage){
-    $this->productImage = $new_productImage;
+    $uploadDir= 'media';
+
+    $origFileName = strtolower(basename($new_productImage));
+    //Ta ut en delsträng med substr() med start på position för sista punkten +1.
+    //+1 för att inte få med själva punkttecknet. 
+    $fileExtension= substr($origFileName, strripos($origFileName, '.')+1);
+
+    //Skapar slumpmässigt namn:
+    $randName1= md5(round(microTime(true)).mt_rand());
+
+    $fileName= $randName1.'.'.$fileExtension;
+    $destination= $uploadDir.'/'.$fileName;
+    $this->productImage = $destination;
   }
+  
   function get_productImage(){
     return $this->productImage;
   }
@@ -104,7 +117,7 @@ if(isset($_POST['productTitle'])){
   $pvm->set_productTitle($_POST['productTitle']);
   $pvm->set_productDescription($_POST['productDescription']);
   $pvm->set_productPrice($_POST['productPrice']);
-  $pvm->set_productImage($_POST['productImage']);
+  $pvm->set_productImage($_FILES['productImage']['name']);
   $pvm->set_productCategories($_POST['addCategories']);
   $pvm->set_productAttributes($_POST['addAttributes']);
   // $productCategories = $_POST['addCategories'];
@@ -142,8 +155,12 @@ if(isset($_POST['productTitle'])){
     $createProductImage = $pvm->get_productImage();
     $sql = "INSERT INTO product (Title, Description, Price, Image) VALUES ('$createProductTitle', '$createProductDescription', '$createProductPrice', '$createProductImage')";
     $stmt = $dbh->prepare($sql);
-    $stmt->execute();
+    // $stmt->execute();
     
+   
+    if($stmt->execute())
+      move_uploaded_file($_FILES['productImage']['tmp_name'],$pvm->get_productImage());
+
     // gets the latest created ID
     $newProdId = $dbh->lastInsertId();
 
@@ -184,4 +201,4 @@ $pvm->set_loadAttributes($loadAttributes);
 
 loadTemplate("createProduct", $pvm);
 
-?>
+ ?>

@@ -19,6 +19,7 @@ if($isAdmin == true){
 		'editUser' => 'admin_editUser_controller.php',
 		'editFooter' => 'admin_editFooter_controller.php',
 		'editPage' => 'admin_editPage_controller.php',
+		'addProductImage' => 'admin_addProductImage_controller.php',
 	);
 }
 // user controllers
