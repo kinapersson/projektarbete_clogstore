@@ -32,8 +32,7 @@ function editProduct(){
     $id = $_POST['userId'];
     $updateUserName = $_POST['userName'];
     $updateUserEmail = $_POST['userEmail'];
-    $updateUserMobileNumber = $_POST['userMobileNumber'];
-    $updateUserWorkNumber = $_POST['userWorkNumber'];
+    $updateUserNumber = $_POST['userNumber'];
     $updateUserAddressDelivery = $_POST['userAddressDelivery'];
     $updateUserZipcodeDelivery = $_POST['userZipcodeDelivery'];
     $updateUserCityDelivery = $_POST['userCityDelivery'];
@@ -41,7 +40,6 @@ function editProduct(){
     $updateUserZipcodeInvoice = $_POST['userZipcodeInvoice'];
     $updateUserCityInvoice = $_POST['userCityInvoice'];
     $updateUserPassword = $_POST['userPassword'];
-    // $updateUserIsAdmin = $_POST['userIsAdmin'];
 
     $updateUserIsAdmin = null;
     $isAdmin = $_POST['userIsAdmin'];
@@ -52,7 +50,7 @@ function editProduct(){
       $updateUserIsAdmin = 1;
     }
 
-    $sql = "UPDATE user SET Name = '$updateUserName', Email = '$updateUserEmail', Password = '$updateUserPassword', isAdmin = $updateUserIsAdmin WHERE UID = '$id'";
+    $sql = "UPDATE user SET name = '$updateUserName', email = '$updateUserEmail', phone = '$updateUserNumber', password = '$updateUserPassword', userlevel = $updateUserIsAdmin WHERE uid = '$id'";
     $stmt = $dbh->prepare($sql);
     $stmt->execute();
 
@@ -62,15 +60,15 @@ function editProduct(){
 
     // PTID 1 = mobile
     //$sql = "UPDATE phone SET PTID = '1', Number = '$updateUserMobileNumber' WHERE UID = '$id'";
-    $sql = "INSERT INTO phone (UID, PTID, Number) VALUES ('$id', '1', '$updateUserMobileNumber')";
-    $stmt = $dbh->prepare($sql);
-    $stmt->execute();
+    // $sql = "INSERT INTO phone (UID, PTID, Number) VALUES ('$id', '1', '$updateUserMobileNumber')";
+    // $stmt = $dbh->prepare($sql);
+    // $stmt->execute();
 
     // PTID 2 = work
     //$sql = "UPDATE phone SET PTID = '2', Number = '$updateUserWorkNumber' WHERE UID = '$id'";
-    $sql = "INSERT INTO phone (UID, PTID, Number) VALUES ('$id', '2', '$updateUserWorkNumber')";
-    $stmt = $dbh->prepare($sql);
-    $stmt->execute();
+    // $sql = "INSERT INTO phone (UID, PTID, Number) VALUES ('$id', '2', '$updateUserWorkNumber')";
+    // $stmt = $dbh->prepare($sql);
+    // $stmt->execute();
 
     $sql = "DELETE FROM address WHERE UID = $id";
     $stmt = $dbh->prepare($sql);

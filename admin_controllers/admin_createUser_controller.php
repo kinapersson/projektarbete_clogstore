@@ -28,22 +28,13 @@ class userViewModel {
     return $this->userEmail;
   }
 
-  public $userMobileNumber = ""; 
+  public $userPhone = ""; 
 
-  function set_userMobileNumber($new_userMobileNumber) {
-    $this->userMobileNumber = $new_userMobileNumber;
+  function set_userPhone($new_userPhone) {
+    $this->userPhone = $new_userPhone;
   }
-  function get_userMobileNumber() {
-    return $this->userMobileNumber;
-  }
-
-  public $userWorkNumber = ""; 
-
-  function set_userWorkNumber($new_userWorkNumber) {
-    $this->userWorkNumber = $new_userWorkNumber;
-  }
-  function get_userWorkNumber() {
-    return $this->userWorkNumber;
+  function get_userPhone() {
+    return $this->userPhone;
   }
 
   public $userAddressDelivery = ""; 
@@ -130,8 +121,7 @@ if(isset($_POST['userName'])){
   // response message
   $missing_createUser = "Du har ej fyllt i ett användarnamn";
   $missing_createEmail = "Du har ej fyllt i en epost";
-  $missing_createMobilePhone = "Du har ej fyllt i ett mobilnummer";
-  $missing_createWorkPhone = "Du har ej fyllt i ett arbetsnummer";
+  $missing_createPhone = "Du har ej fyllt i ett nummer";
   $missing_createAddressDelivery = "Du har ej fyllt i en leverans adress";
   $missing_createZipcodeDelivery = "Du har ej fyllt i ett leverans postnummer";
   $missing_createCityDelivery = "Du har ej fyllt i ett leverans stad";
@@ -145,8 +135,7 @@ if(isset($_POST['userName'])){
   // user posted variables
   $uvm->set_userName($_POST['userName']);
   $uvm->set_userEmail($_POST['userEmail']);
-  $uvm->set_userMobileNumber($_POST['userMobileNumber']);
-  $uvm->set_userWorkNumber($_POST['userWorkNumber']);
+  $uvm->set_userPhone($_POST['userPhone']);
 
   $uvm->set_userAddressDelivery($_POST['userAddressDelivery']);
   $uvm->set_userZipcodeDelivery($_POST['userZipcodeDelivery']);
@@ -166,13 +155,9 @@ if(isset($_POST['userName'])){
   else if(empty($uvm->get_userEmail())){
     $uvm->generate_response("error", $missing_createEmail);
   }
-  // validate presence of createUserMobileNumber
-  else if(empty($uvm->get_userMobileNumber())){
-    $uvm->generate_response("error", $missing_createMobilePhone);
-  }
-  // validate presence of createUserWorkNumber
-  else if(empty($uvm->get_userWorkNumber())){
-    $uvm->generate_response("error", $missing_createWorkPhone);
+  // validate presence of createUserPhone
+  else if(empty($uvm->get_userPhone())){
+    $uvm->generate_response("error", $missing_createPhone);
   }
   // validate presence of createUserAddressDelivery
   else if(empty($uvm->get_userAddressDelivery())){
@@ -209,8 +194,8 @@ if(isset($_POST['userName'])){
   else{ // ready to go
     $createUserName = $uvm->get_userName();
     $createUserEmail = $uvm->get_userEmail();
-    $createUserMobileNumber = $uvm->get_userMobileNumber();
-    $createUserWorkNumber = $uvm->get_userWorkNumber();
+    $createUserPhone = $uvm->get_userPhone();
+    $createUserPassword = $uvm->get_userPassword();
 
     $createUserAddressDelivery = $uvm->get_userAddressDelivery();
     $createUserZipcodeDelivery = $uvm->get_userZipcodeDelivery();
@@ -219,18 +204,15 @@ if(isset($_POST['userName'])){
     $createUserZipcodeInvoice = $uvm->get_userZipcodeInvoice();
     $createUserCityInvoice = $uvm->get_userCityInvoice();
 
-    $createUserPassword = $uvm->get_userPassword();
-    // $createUserIsAdmin = $uvm->get_userIsAdmin();
-
     $createUserIsAdmin = null;
     if ($uvm->get_userIsAdmin() == "admin"){
-      $createUserIsAdmin = 0;
-    }
-    else{
       $createUserIsAdmin = 1;
     }
+    else{
+      $createUserIsAdmin = 2;
+    }
 
-    $sql = "INSERT INTO user (Name, Email, Password, isAdmin) VALUES ('$createUserName', '$createUserEmail', '$createUserPassword', $createUserIsAdmin)";
+    $sql = "INSERT INTO user (name, email, phone, password, userlevel) VALUES ('$createUserName', '$createUserEmail', '$createUserPhone', '$createUserPassword', $createUserIsAdmin)";
     $stmt = $dbh->prepare($sql);
     $stmt->execute();
 
@@ -238,14 +220,14 @@ if(isset($_POST['userName'])){
     $newUserId = $dbh->lastInsertId();
 
     // PTID 1 = mobile
-    $sql = "INSERT INTO phone (UID, PTID, Number) VALUES ('$newUserId', '1', '$createUserMobileNumber')";
-    $stmt = $dbh->prepare($sql);
-    $stmt->execute();
+    // $sql = "INSERT INTO phone (UID, PTID, Number) VALUES ('$newUserId', '1', '$createUserMobileNumber')";
+    // $stmt = $dbh->prepare($sql);
+    // $stmt->execute();
 
     // PTID 2 = work
-    $sql = "INSERT INTO phone (UID, PTID, Number) VALUES ('$newUserId', '2', '$createUserWorkNumber')";
-    $stmt = $dbh->prepare($sql);
-    $stmt->execute();
+    // $sql = "INSERT INTO phone (UID, PTID, Number) VALUES ('$newUserId', '2', '$createUserWorkNumber')";
+    // $stmt = $dbh->prepare($sql);
+    // $stmt->execute();
 
     // ADID 1 = delivery
     $sql = "INSERT INTO address (ADID, UID, Street, Zipcode, City) VALUES ('1', '$newUserId', '$createUserAddressDelivery', '$createUserZipcodeDelivery', '$createUserCityDelivery')";

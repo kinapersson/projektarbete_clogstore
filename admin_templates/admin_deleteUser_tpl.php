@@ -17,10 +17,10 @@
                     ?>
                         <tr>
                             <td>
-                                <?php echo $showUsers->Name ?>
+                                <?php echo $showUsers->name ?>
                             </td>
                             <td>
-                                <button type="submit" name="removeID" class="btn btn-danger float-right" value="<?php echo $showUsers->UID; ?>">Delete</button>
+                                <button type="submit" name="removeID" class="btn btn-danger float-right" value="<?php echo $showUsers->uid; ?>">Delete</button>
                             </td>
                         </tr>
                     <?php

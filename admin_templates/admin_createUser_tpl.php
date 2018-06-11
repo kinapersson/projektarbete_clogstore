@@ -9,10 +9,8 @@
             <input name="userName" type="text" class="form-control" placeholder="Skriv in ett namn" value="<?php echo $templateData->get_userName(); ?>"/>
             <label name="labelCreateEmail">Lägg till epost</label>
             <input name="userEmail" type="text" class="form-control" placeholder="Skriv in en email" value="<?php echo $templateData->get_userEmail(); ?>"/>
-            <label name="labelCreatePhoneNumber">Lägg till mobilnummer</label>
-            <input name="userMobileNumber" type="text" class="form-control" placeholder="Skriv in ett mobilnummer" value="<?php echo $templateData->get_userMobileNumber(); ?>"/>
-            <label name="labelCreateWorkNumber">Lägg till arbetsnummer</label>
-            <input name="userWorkNumber" type="text" class="form-control" placeholder="Skriv in ett arbetsnummer" value="<?php echo $templateData->get_userWorkNumber(); ?>"/>
+            <label name="labelCreatePhone">Lägg till ett nummer</label>
+            <input name="userPhone" type="text" class="form-control" placeholder="Skriv in ett nummer" value="<?php echo $templateData->get_userPhone(); ?>"/>
 
             <label name="labelCreateAddressDelivery">Lägg till en leverans adress</label>
             <input name="userAddressDelivery" type="text" class="form-control" placeholder="Skriv in en leverans adress" value="<?php echo $templateData->get_userAddressDelivery(); ?>"/>

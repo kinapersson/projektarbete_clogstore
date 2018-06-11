@@ -45,9 +45,4 @@ switch ($_GET['action'] ?? null) {
      
 }
 
-// Avsluta controllers med att ladda template om det ska göras.
 loadTemplate('cart', '$data');
-
-
-// echo $data;
-

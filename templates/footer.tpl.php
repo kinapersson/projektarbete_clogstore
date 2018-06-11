@@ -1,4 +1,5 @@
 </div></div> <!-- main-container end (starts in header) -->
+<?php require_once("classes/changeFooter.class.php"); ?>
 
 <div class="wrapper" id="wrapper-footer">
 
@@ -8,7 +9,11 @@
 				
 				<div class="col-md-6">
 					<p>About Clogstore</p>
-					<p>Clogstore is a leader in the shoe business and one of the few manufacturing shoe companies in Sweden. The company is located in Moheda, a town in Alvesta municipality, located in the Småland province.</p>
+					<p>  
+						<?php foreach($loadFooter as $data){
+							echo $data->aboutus;
+						} ?>
+					</p>
 				</div>
 					
 				<div class="col-md-3">

@@ -41,9 +41,6 @@ else{
 		'thanks' => 'thanks_controller.php',
 		'user_delete' => 'user_delete_controller.php',
 		'user_edit' => 'user_edit_controller.php',
-		
-	
-
 	);
 }
 
