@@ -35,6 +35,16 @@ class productViewModel{
     return $this->productTitle;
   }
 
+  public $productSizes = ""; 
+
+  function set_productSizes($new_productSizes){
+    $sizes = explode(",", $new_productSizes);
+    $this->productSizes = $sizes;
+  }
+  function get_productSizes(){
+    return $this->productSizes;
+  }
+
   public $productDescription = ""; 
 
   function set_productDescription($new_productDescription){
@@ -65,12 +75,11 @@ class productViewModel{
 
     //Skapar slumpmässigt namn:
     $randName1= md5(round(microTime(true)).mt_rand());
-
     $fileName= $randName1.'.'.$fileExtension;
     $destination= $uploadDir.'/'.$fileName;
     $this->productImage = $destination;
   }
-  
+
   function get_productImage(){
     return $this->productImage;
   }
@@ -111,7 +120,8 @@ if(isset($_POST['productTitle'])){
   $missing_productImage = "Du har ej fyllt i en bild";
   $missing_productCategories = "Du har ej fyllt i en kategori";
   $missing_productAttributes = "Du har ej fyllt i ett attribut";
-  $message_sent = "Nu har kategorin sparats i databasen";
+  $missing_productSizes = "Du har ej fyllt i storlek och antal";
+  $message_sent = "Nu har produkten sparats i databasen";
 
   // user posted variables
   $pvm->set_productTitle($_POST['productTitle']);
@@ -120,6 +130,7 @@ if(isset($_POST['productTitle'])){
   $pvm->set_productImage($_FILES['productImage']['name']);
   $pvm->set_productCategories($_POST['addCategories']);
   $pvm->set_productAttributes($_POST['addAttributes']);
+  $pvm->set_productSizes($_POST['productSizes']);
   // $productCategories = $_POST['addCategories'];
   // $productAttributes = $_POST['addAttributes'];
 
@@ -134,6 +145,9 @@ if(isset($_POST['productTitle'])){
   // validate presence of productPrice
   else if(empty($pvm->get_productPrice())){
     $pvm->generate_response("error", $missing_productPrice);
+  }
+  else if(count($pvm->get_productSizes()) < 1){
+    $pvm->generate_response("error", $missing_productSizes);
   }
   // validate presence of productImage
   else if(empty($pvm->get_productImage())){
@@ -180,6 +194,18 @@ if(isset($_POST['productTitle'])){
       $sql = "INSERT INTO attribute (PID, ATID) VALUES ('$newProdId', '$att')";
       $stmt = $dbh->prepare($sql);
       $stmt->execute();
+    }
+
+    $createProductSizes = $pvm->get_productSizes();
+    foreach ($createProductSizes as $size)
+    {
+      
+      $stock = explode(":",$size);
+      if (count($stock) > 1) {
+        $sql = "INSERT INTO size (PID, Size, Stock) VALUES ('$newProdId', '$stock[0]', $stock[1])";
+        $stmt = $dbh->prepare($sql);
+        $stmt->execute();
+      }
     }
 
     $pvm->generate_response("success", $message_sent);

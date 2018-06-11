@@ -11,6 +11,8 @@
             <input name="productDescription" type="text" class="form-control" placeholder="Beskrivning" value="<?php echo $templateData->get_productDescription(); ?>"/>
             <label name="labelCreatePrice">Skriv in produktens pris</label>
             <input name="productPrice" type="text" class="form-control" placeholder="Pris" value="<?php echo $templateData->get_productPrice(); ?>"/>
+            <label name="labelCreateSizes">Skriv in produktens storlekar samt antal. T.ex 37.5:8. Separera med komma.</label>
+            <input name="productSizes" type="text" class="form-control" placeholder="Storlek" value="<?php if(null != $templateData->get_productSizes()) echo implode(",", $templateData->get_productSizes()) ; ?>"/> 
             <label name="labelCreateImage">Ladda upp bild</label>
             <input name="productImage" type="file" class="form-control" placeholder="Bild" value="<?php echo $templateData->get_productImage(); ?>"/>
             <label name="labelCreateProductCategories">Välj kategorier till produkten</label>
@@ -24,7 +26,7 @@
                 ?>
                 <div class="checkbox">
                   <label>
-                    <?php echo $showCategories->title ?> <input name="addCategories[]" type="checkbox" class="dropdown-item" value="<?php echo $showCategories->catid ?>">
+                    <?php echo $showCategories->title ?> <input name="addCategories[]" type="checkbox" class="" value="<?php echo $showCategories->catid ?>">
                   </label>
                 </div>
                 <?php
