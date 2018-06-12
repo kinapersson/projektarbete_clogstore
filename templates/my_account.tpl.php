@@ -11,8 +11,10 @@
     </ul>
 </div>
 <div class="container">
-<h2>Profile<i class="glyphicon glyphicon-user"></i></h2>
-    
+<h2>Profile</h2>
+    <!--show profile pic-->
+    <?php printf("<img src='%s' class='img-circle' alt='Cinque Terre' height='150' width='150' />", $_SESSION['profile_pic']);?>
+    <!--show user name-->    
 <h4>Welcome!<?php echo $_SESSION['u_name'] ?> </h4>
  <p>Here you can view your order details, change password, update and delete your account.</p>
     <br>
