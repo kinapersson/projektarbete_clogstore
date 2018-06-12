@@ -13,8 +13,6 @@ require_once("includes/functions.inc.php");
 // Läs in fil med definierade routes
 require_once("includes/routes.inc.php");
 
-// 1. Koll om personen loggar in som admin eller användare
-// 2. Laddar upp controllers för vilken roll
 $isAdmin = false;
 if($isAdmin == true){
 	$controller = $_GET['controller'] ?? "frontpage";
@@ -33,4 +31,5 @@ else{
 		$controller = "default";
 
 	require_once("user_controllers/".$routes[$controller]);
+	require_once("classes/isAdmin.class.php");
 }
