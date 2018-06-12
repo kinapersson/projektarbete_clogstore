@@ -58,9 +58,8 @@ if(isset($_POST['addressDelivery'])){
     // $ovm->set_paymentMethod($_POST['paymentMethod']);
   }
 
-  // temporary fixed ID until login function is up and running
-  // add to ovm class
-  $uid = 1;
+  //$uid = 1;
+  $uid = $_SESSION['u_id'];
 
   // saves the information to the product tabel
   $createOrderDate = $ovm->get_orderDate();

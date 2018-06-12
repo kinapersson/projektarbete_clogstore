@@ -6,7 +6,6 @@
                             <thead>
                             <tr>
                                 <th> OID </th>
-                                <th> UID</th>
                                 <th> Order date</th>
                                 <th> Delivery Address</th>
                                 <th> Payment Date</th>
@@ -16,42 +15,38 @@
                             </thead>
                             <tbody>
                             <?php
-                            foreach($templateData as $showOrders){
-                                ?>
-                                <tr>
-                                    <td>
-                                        <?php echo $showOrders->OID ?>
-                                    </td>
-                                    <td>
-                                        <?php echo $showOrders->UID ?>
-                                    </td>
-                                    <td>
-                                        <?php echo $showOrders->OrderDate ?>
-                                    </td>
-                                    <td>
-                                        <?php echo $showOrders->AddressDelivery ?>
-                                    </td>
-                                    <td>
-                                        <?php echo $showOrders->PaymentDate ?>
-                                    </td>
-                                    <td>
-                                        <?php echo $showOrders->OrderStatus ?>
-                                    </td>
-                                    <td>
-                                        <?php echo $showOrders->PaymentMethod ?>
-                                    </td>
+                            foreach($templateData as $showOrders) {
+                                if ($_SESSION['u_id'] == $showOrders->UID) {
+                                    ?>
+                                    <tr>
+                                        <td>
+                                            <?php echo $showOrders->OID ?>
+                                        </td>
+                                        <td>
+                                            <?php echo $showOrders->OrderDate ?>
+                                        </td>
+                                        <td>
+                                            <?php echo $showOrders->AddressDelivery ?>
+                                        </td>
+                                        <td>
+                                            <?php echo $showOrders->PaymentDate ?>
+                                        </td>
+                                        <td>
+                                            <?php echo $showOrders->OrderStatus ?>
+                                        </td>
+                                        <td>
+                                            <?php echo $showOrders->PaymentMethod ?>
+                                        </td>
 
-                                </tr>
-                                <?php
+                                    </tr>
+                                    <?php
+                                }
                             }
                             ?>
+
                             </tbody>
                         </table>
                     </div>
                 </div>
                 </div>
                 </form>
-
-
-
-
