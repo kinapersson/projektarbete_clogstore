@@ -114,10 +114,9 @@ li.dropdown {
 
 
 
-
 /*--------------------------------------------- FOOTER ---------------------------------- */
 #wrapper-footer {
-    
+    margin: 0;
     height: 180px;
     background-color: rgb(168, 144, 113);
     font-family: 'Source Sans Pro', sans-serif;

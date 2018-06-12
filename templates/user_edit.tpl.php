@@ -6,11 +6,13 @@
         <!-- left column -->
         <div class="col-md-4 col-sm-6 col-xs-12">
             <div class="text-center">
-                <form method="POST" enctype="multipart/form-data" action="">
-                <img src="http://via.placeholder.com/300x200" class="avatar img-circle img-thumbnail" alt="avatar">
-                <h6>Upload a different photo...</h6>
-                    <input type="file" class="text-center center-block well well-sm" name="fileToUpload" id="fileToUpload">
-                <input type="submit" value="Upload Image" name="submit">
+                <form style='text-align:center;' action='?controller=upload_photo' method='post' enctype='multipart/form-data'>
+                <?php if (isset($_SESSION['profile_pic'])) {
+                        printf("<img src='%s' class='img-circle' alt='Cinque Terre' height='150' width='150' />", $_SESSION['profile_pic']);}
+                    ?>
+                    <input type='file' name='banner' id='fileToUpload'>
+                    <input type='submit' value='Upload Image' name='submit'>
+                   
                 </form>
             </div>
         </div>
