@@ -1,5 +1,7 @@
 <?php
 
+require_once("classes/user.class.php");
+
 $user = new user();
 if (isset($_POST['update'])) {
     $user = $_SESSION['u_id'];
@@ -97,11 +99,8 @@ try {
     }
 
 $dbh = null;
-    var_dump($_POST);
-
-
+    // var_dump($_POST);
 }
-
 
 $edit = '';
 loadTemplate('user_edit', $edit);
