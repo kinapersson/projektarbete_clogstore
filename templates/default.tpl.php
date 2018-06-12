@@ -1,10 +1,12 @@
 
 <html>
 
+<div class="image-wrapper"></div>
+
 <!-- Printar ut rätt kategorinamn -->
 <h1><?php echo $templateData[0]->title ?></h1>
 
-<!-- Loopar ut rätt produkter, i $templateData sätts kategori-id till 4 (featured products) -->
+<!-- Loopar ut rätt produkter, i $templateData sätts kategori till featured products -->
 <?php foreach($templateData as $product) :?>
 
     <div class="product-wrapper col-md-3">

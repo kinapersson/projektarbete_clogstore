@@ -1,18 +1,18 @@
 <html>
     <!-- Hämtar rätt bild -->
-    <div class="productImage">
+    <div class="col-md-4 productImage">
         <img id="productImage" src="<?php echo $templateData->Image; ?>"/>
     </div>
     
     <!-- Printar ut aktuell produkt och dess attribut -->
-    <div class="productDetails">
+    <div class="col-md-4 productDetails">
         <h1><?php echo $templateData->Title;?></h1>
-        <h2><?php echo $templateData->Description;?></h2>
-        <h3><?php echo $templateData->Price;?> SEK</h3>
+        <h5><?php echo $templateData->Description;?></h2>
+        <h4><?php echo $templateData->Price;?> SEK</h3>
 
         <!-- Loopar ut tillgängliga storlekar från DB i en select-lista -->
         <form>
-            <p>Size:</p>
+            <label>Size:</label>
             <select>
             <?php foreach ($templateData->sizes as $size) {
                 if ($size->Stock > 0) {
