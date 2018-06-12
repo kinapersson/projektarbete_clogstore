@@ -209,7 +209,7 @@ if(isset($_POST['userName'])){
       $createUserIsAdmin = 1;
     }
     else{
-      $createUserIsAdmin = 2;
+      $createUserIsAdmin = 0;
     }
 
     $sql = "INSERT INTO user (name, email, phone, password, userlevel) VALUES ('$createUserName', '$createUserEmail', '$createUserPhone', '$createUserPassword', $createUserIsAdmin)";
