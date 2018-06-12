@@ -42,6 +42,7 @@ else{
 		'user_delete' => 'user_delete_controller.php',
 		'user_edit' => 'user_edit_controller.php',
 		'change_password' => 'change_password_controller.php',
+		'log_out' => 'log_out_controller.php',
 	);
 }
 
