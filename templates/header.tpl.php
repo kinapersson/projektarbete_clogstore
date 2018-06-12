@@ -28,10 +28,23 @@
     <li class="dropdown">
         <a href="?controller=products" class="dropbtn">Products</a>
         <div class="dropdown-content">
-        <a href="?controller=products">All products</a>
-        <a href="?controller=products&cat=1">Men</a>
-        <a href="?controller=products&cat=2">Women</a>
-        <a href="?controller=products&cat=3">Kids</a>
+            <a href="?controller=products">All products</a>
+            <?php
+            global $dbh;
+        	$sql = "SELECT * FROM category";
+            $stmt = $dbh->query($sql);
+
+            $categoryData = $stmt->fetchAll(PDO::FETCH_OBJ);
+
+            foreach ($categoryData as $category):
+            ?>  
+            <a href="?controller=products&cat=<?php echo($category->catid);?>"><?php echo($category->title)?></a>
+            
+            <?php 
+            endforeach; 
+            ?>
+
+
         </div>
     
         <li><a href="?controller=cart">Cart</a></li>
