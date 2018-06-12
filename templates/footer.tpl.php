@@ -1,46 +1,36 @@
 </div></div> <!-- main-container end (starts in header) -->
 <?php require_once("classes/changeFooter.class.php"); ?>
 
-<div class="wrapper" id="wrapper-footer">
-
-		<div class="col-md-12">
-			  
+<div class="col-md-12 wrapper" id="wrapper-footer">
+			
 			<div class="row">
-				
-				<div class="col-md-6">
-					<p>About Clogstore</p>
-					<p>  
+				<div class="col-md-5">
+					<h3>About Clogstore</h3>
+					<h5>  
 						<?php foreach($loadFooter as $data){
 							echo $data->aboutus;
 						} ?>
-					</p>
-				</div>
-					
-				<div class="col-md-3">
-					<p>Find us</p>
-                    <p>Toffelvägen 1</p>
-                    <p>342 60 MOHEDA</p>
-                    <p>SWEDEN</p>
+					</h5>
 				</div>
 
-                	<div class="col-md-3">
-					<p>Contact us</p>
-					<p>+46736357000</p>
-                    <p>hej@clogstore.se</p>
+				<div class="col-md-5">
+					<h3>Contact us</h3>
+						<h5>Phone: 08-123 123</h5>
+						<h5>E-mail: info@clogstore.se</h5>
 				</div>
-				
-				
+
+				<div class="col-md-2">
+					<h3>Follow us!</h3>
+				</div>
+
+
 			</div>
-				
-				<div class="row">
-				  		<div class="col-md-12">
-                          <p>&copy; 2018 Clogstore AB<p>
-						</div>
-				</div> 
-				
-		</div> <!-- col end -->
-</div> <!-- wrapper end -->
 
+	<div class="col-md-12 text-right">
+            <h5>&copy; 2018 Clogstore AB<h5>
+	</div>	
+				 				
+</div> <!-- wrapper-footer end -->
 
 </body>
 </html>
