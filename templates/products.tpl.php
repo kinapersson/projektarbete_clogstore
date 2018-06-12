@@ -20,6 +20,9 @@
         <?php echo $product->Title;?></a></h2>
         <p><?php echo $product->Description;?></p>
         <p>Price: <?php echo $product->Price;?> SEK</p>
+        
+        <a href="?controller=product&pid=<?php echo $product->PID;?>"><button id="addToCartBtn" class="btn btn-primary" type="submit">Buy</button></a>
+
     </div>
 
 
