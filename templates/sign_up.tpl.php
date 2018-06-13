@@ -31,6 +31,7 @@
                             <input type="password" name="password" class="form-control" id="password" placeholder="Enter password" required>
                         </div>
                     </div>
+    <input type="checkbox" id="checkbox">By creating an account you agree to our <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</input>
                     <div class="form-group">
                         <div class="col-sm-offset-4 col-sm-4">
                             <button class="btn btn-primary" type="submit" id="submit" name="submit">Sign up</button>
