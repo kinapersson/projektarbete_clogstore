@@ -6,7 +6,7 @@ $stmt->execute();
 $getUserLevel = $stmt->fetchAll(PDO::FETCH_OBJ);
 
 foreach($getUserLevel as $data) {
-    if($_SESSION['u_id'] = $data->uid;){
+    if($_SESSION['u_id'] = $data->uid){
         $isAdmin = $data->userlevel;
     }
 }
