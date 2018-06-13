@@ -109,18 +109,18 @@ li.dropdown {
   float: left;
 }
 
-
 .product-wrapper a {
   text-decoration: none;
   color: black;
-  padding: 5px;
 }
 
+.product-wrapper {
+  padding: 10px;
+}
 
 
 /*--------------------------------------------- FOOTER ---------------------------------- */
 #wrapper-footer {
-    margin: 0;
     height: 180px;
     background-color: rgb(168, 144, 113);
     font-family: 'Source Sans Pro', sans-serif;
@@ -133,6 +133,5 @@ li.dropdown {
 
 .main-content {
   min-height: calc(100vh - 300px);
-
 }
 

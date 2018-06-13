@@ -9,7 +9,7 @@ require 'templates/cart.tpl.php';
     <div class="col-lg-9 col-md-12 col-sm-12 col-sx-12">
         <form method="post" action="?controller=thanks">
           <div class="form-group">
-            <label name="OrderCreateAddressDelivery">User Name</label>
+            <label name="OrderCreateAddressDelivery">Delivery Address</label>
             <input name="addressDelivery" type="text" class="form-control" placeholder="Write your address delivery" value=""/>
 
             <label name="OrderCreatePaymentMethod">Payment Method </label><br>

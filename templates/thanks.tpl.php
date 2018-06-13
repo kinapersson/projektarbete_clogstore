@@ -6,7 +6,8 @@ global $cartSum;
 ?>
 
 <table class="table table-sm table-dark">
-    <thead>
+<h3>Tack för din order! En bekräftelse kommer att skickas till din mailadress.</h3>    
+<thead>
         <tr>
             <th> Produkt </th>
             <th> Beskrivning </th>
@@ -28,7 +29,7 @@ global $cartSum;
                     <?php echo $product->Description ?>
                 </td>
                 <td>
-                    <?php echo $product->PID, $antal ?>
+                    <?php echo $antal ?>
                 </td>
                 <td>
                     <?php echo $product->Price * $antal ?>

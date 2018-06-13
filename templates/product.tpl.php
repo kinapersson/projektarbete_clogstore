@@ -1,3 +1,4 @@
+<!-- Author: Kina -->
 <html>
     <!-- Hämtar rätt bild -->
     <div class="col-md-4 productImage">
@@ -25,6 +26,7 @@
             </select>
         </form>
 
+<!-- Author: Marie -->
 <!-- Add to Cart -->
 
 <form method="post" action="?controller=cart&action=add">

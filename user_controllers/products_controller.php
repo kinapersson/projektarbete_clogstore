@@ -1,9 +1,9 @@
 <?php
+//Author: Kina
 // products_controller.php
 
+// Om det finns en getparameter "cat" hämta produkter med motsvarande kategoriid. 
 if (isset($_GET['cat'])) {
-
-	// Om det finns en getparameter "cat" hämta produkter med motsvarande kategoriid. 
 
 	$sql = 
 		"SELECT * FROM product, prodcat, category 
@@ -11,7 +11,7 @@ if (isset($_GET['cat'])) {
 		AND prodcat.catid = category.catid
 		AND prodcat.catid = :catid";
 
-		// Eftersom $_GET används måste vi göra prepared statement för att undvika skadlig DB-kod.
+	// Eftersom $_GET används måste vi göra prepared statement för att undvika skadlig DB-kod.
 	$stmt = $dbh->prepare($sql);
 	$stmt->bindParam(':catid', $_GET['cat']);
 	$stmt->execute();
@@ -25,7 +25,6 @@ if (isset($_GET['cat'])) {
 
 // Lagra resultatet från frågan i variabel
 $productsData = $stmt->fetchAll(PDO::FETCH_OBJ);
-
 
 // För att göra laddningen flexiblare används en funktion för templateladdning. (finns i includes/functions.inc.php)
 loadTemplate("products", $productsData);

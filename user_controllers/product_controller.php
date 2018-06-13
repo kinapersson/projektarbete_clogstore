@@ -1,5 +1,5 @@
 <?php
-
+//<!-- Author: Kina -->
 //Hämtar PID via get-parameter:
 $sql = "SELECT * FROM product
         WHERE product.PID = :pid ";

@@ -1,4 +1,5 @@
 <?php
+//Author: Kina
 //STARTSIDAN
 
 //Hämtar alla produkter i featured products-kategorin:
@@ -12,5 +13,4 @@ $stmt->execute();
 // Lagra resultatet från frågan i variabel
 $productsData = $stmt->fetchAll(PDO::FETCH_OBJ);
 
-// För att göra laddningen flexiblare används en funktion för templateladdning. (finns i includes/functions.inc.php)
 loadTemplate("default", $productsData);
