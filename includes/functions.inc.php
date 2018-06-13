@@ -14,7 +14,7 @@ function loadTemplate($templateName, $templateData) {
 }
 */
 
-$isAdmin = false;
+$isAdmin = true;
 // admin templates
 // ($user->isUserAdmin)
 if ($isAdmin == true){	

@@ -18,9 +18,7 @@
 
 <div class="header">
     <h1><a href="?controller=default">CLOGSTORE</a></h1>
-    <?php if($isAdmin = 1){ ?>
-        <h1><a href="?controller=frontpage">Admin</a></h1>
-    <?php } var_dump($isAdmin); ?>
+
 
     <ul>
     <li><a href="?controller=default">Home</a></li>
