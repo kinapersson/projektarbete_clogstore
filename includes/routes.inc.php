@@ -82,6 +82,7 @@ else{
 		'user_edit' => 'user_edit_controller.php',
 		'change_password' => 'change_password_controller.php',
 		'log_out' => 'log_out_controller.php',
+		'upload_photo'  => 'upload_photo_controller.php'
 	);
 }
 */
