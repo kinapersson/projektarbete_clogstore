@@ -2,6 +2,9 @@
 // index.php
 session_start();
 
+require 'classes/user.class.php';
+$user = new User();
+
 // Konfigurationer
 require_once("includes/settings.inc.php");
 // Anslut till DB
