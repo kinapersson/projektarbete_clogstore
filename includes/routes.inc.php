@@ -1,9 +1,10 @@
 <?php
 // routes.inc.php
 
-$isAdmin = false;
+//$isAdmin = false;
 // admin controllers
-if($isAdmin == true){
+if ($user->isUserAdmin()) {
+//if($isAdmin == true){
 	$routes = array(
 		'frontpage' => 'admin_frontPage_controller.php',
 		'createProduct' => 'admin_createProduct_controller.php',
@@ -21,9 +22,9 @@ if($isAdmin == true){
 		'editPage' => 'admin_editPage_controller.php',
 		'addProductImage' => 'admin_addProductImage_controller.php',
 	);
-}
+} else {
 // user controllers
-else{
+
 	$routes  = array(
 		'cart' => 'cart_controller.php',
 		'checkout' => 'checkout_controller.php',
