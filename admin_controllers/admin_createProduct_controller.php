@@ -37,6 +37,7 @@ class productViewModel{
 
   public $productSizes = ""; 
 
+  //Splittar upp datan i det kombinerade stock/size-inputfältet
   function set_productSizes($new_productSizes){
     $sizes = explode(",", $new_productSizes);
     $this->productSizes = $sizes;
@@ -171,7 +172,7 @@ if(isset($_POST['productTitle'])){
     $stmt = $dbh->prepare($sql);
     // $stmt->execute();
     
-   
+    //Flyttar uppladdade bilder till media-mappen
     if($stmt->execute())
       move_uploaded_file($_FILES['productImage']['tmp_name'],$pvm->get_productImage());
 
@@ -199,7 +200,8 @@ if(isset($_POST['productTitle'])){
     $createProductSizes = $pvm->get_productSizes();
     foreach ($createProductSizes as $size)
     {
-      
+      //Splittar upp så att vi får ut endast storlek från det kombinerade strl/stock-fältet. Execute
+      //sker endast om stock har ett värde.
       $stock = explode(":",$size);
       if (count($stock) > 1) {
         $sql = "INSERT INTO size (PID, Size, Stock) VALUES ('$newProdId', '$stock[0]', $stock[1])";
