@@ -14,10 +14,13 @@ function loadTemplate($templateName, $templateData) {
 }
 */
 
-$isAdmin = false;
+//$isAdmin = false;
 // admin templates
 // ($user->isUserAdmin)
-if ($isAdmin == true){	
+//if ($isAdmin == true){	
+$isAdmin = $user->isUserAdmin();
+// admin templates
+if ($isAdmin){
 	function loadTemplate($templateName, $templateData) {
 		require("admin_templates/admin_header_tpl.php");
 		require('admin_templates/admin_'.$templateName.'_tpl.php');
