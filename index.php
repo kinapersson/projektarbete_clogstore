@@ -16,8 +16,9 @@ require_once("includes/functions.inc.php");
 // Läs in fil med definierade routes
 require_once("includes/routes.inc.php");
 
-$isAdmin = false;
-if($isAdmin == true){
+//$isAdmin = false;
+//if($isAdmin == true){
+if ($user->isUserAdmin()) {
 	$controller = $_GET['controller'] ?? "frontpage";
 	if (!array_key_exists($controller, $routes))
 		$controller = "frontpage";
