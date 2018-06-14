@@ -1,10 +1,10 @@
 <?php
 // routes.inc.php
 
-//$isAdmin = false;
+$isAdmin = false;
 // admin controllers
-if ($user->isUserAdmin()) {
-//if($isAdmin == true){
+//if ($user->isUserAdmin()) {
+if($isAdmin == true){
 	$routes = array(
 		'frontpage' => 'admin_frontPage_controller.php',
 		'createProduct' => 'admin_createProduct_controller.php',
