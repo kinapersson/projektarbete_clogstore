@@ -1,6 +1,6 @@
 <?php
 
-$user = new user();
+
 if (isset($_POST['update'])) {
     $user = $_SESSION['u_id'];
     $error = false;
@@ -65,42 +65,32 @@ if (isset($_POST['update'])) {
 
     $password = password_hash($password, PASSWORD_DEFAULT);
 
-    try {
 
-        $sql = "UPDATE user SET name='$name', email='$email', phone='$phone', password='$password' WHERE uid='$user'";
+    $sql = "UPDATE user SET name='$name', email='$email', phone='$phone', password='$password' WHERE uid='$user'";
 
-        // Prepare statement
-        $stmt = $dbh->prepare($sql);
-        $stmt->bindParam(':name', $name);
-        $stmt->bindParam(':email', $email);
-        $stmt->bindParam(':phone', $phone);
-        $stmt->bindParam(':password', $password);
+    // Prepare statement
+    $stmt = $dbh->prepare($sql);
+    $stmt->bindParam(':name', $name);
+    $stmt->bindParam(':email', $email);
+    $stmt->bindParam(':phone', $phone);
+    $stmt->bindParam(':password', $password);
 
-        // execute the query
-        $dbh->exec($sql);
-        if ($stmt->rowCount() > 0) {
-            $row = $stmt->fetch(PDO::FETCH_ASSOC);
-            $hashedPw = $row['password'];
-            $deHashPw = password_verify($password, $row['password']);
-            $_SESSION['u_id'] = $row['uid'];
-            $_SESSION['u_name'] = $row['name'];
-            $_SESSION['u_phone'] = $row['phone'];
-            $_SESSION['u_email'] = $row['email'];
-            header("Location: ?controller=my_account");
-        } else {
-            // echo a message to say the UPDATE succeeded
-            echo " records UPDATED successfully";
-        }
-    } catch (PDOException $e) {
-        echo $sql . "<br>" . $e->getMessage();
+    // execute the query
+    $dbh->exec($sql);
+    if ($stmt->rowCount() > 0) {
+        $row = $stmt->fetch(PDO::FETCH_ASSOC);
+        $hashedPw = $row['password'];
+        $deHashPw = password_verify($password, $row['password']);
+        $_SESSION['u_id'] = $row['uid'];
+        $_SESSION['u_name'] = $row['name'];
+        $_SESSION['u_phone'] = $row['phone'];
+        $_SESSION['u_email'] = $row['email'];
+
+    } else {
+        // echo a message to say the UPDATE succeeded
+        echo " records UPDATED successfully";
     }
-
-    $dbh = null;
-    //var_dump($_POST);
-
-
 }
-
 $edit = '';
 loadTemplate('user_edit', $edit);
 ?>
