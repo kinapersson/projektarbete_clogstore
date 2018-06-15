@@ -92,7 +92,7 @@ CREATE TABLE `attribute` (
 
 LOCK TABLES `attribute` WRITE;
 /*!40000 ALTER TABLE `attribute` DISABLE KEYS */;
-INSERT INTO `attribute` VALUES (1,1),(2,2),(3,1);
+INSERT INTO `attribute` VALUES (28,1),(30,1),(1,1),(2,1),(31,1),(3,1),(29,2),(33,2);
 /*!40000 ALTER TABLE `attribute` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -131,7 +131,7 @@ CREATE TABLE `category` (
   `catid` int(11) NOT NULL AUTO_INCREMENT,
   `title` varchar(45) NOT NULL,
   PRIMARY KEY (`catid`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -142,6 +142,33 @@ LOCK TABLES `category` WRITE;
 /*!40000 ALTER TABLE `category` DISABLE KEYS */;
 INSERT INTO `category` VALUES (1,'Men'),(2,'Women'),(3,'Kids'),(4,'Featured Products');
 /*!40000 ALTER TABLE `category` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `images`
+--
+
+DROP TABLE IF EXISTS `images`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `images` (
+  `imageid` int(11) NOT NULL AUTO_INCREMENT,
+  `filename` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `timestamp` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `uid` int(11) DEFAULT NULL,
+  PRIMARY KEY (`imageid`),
+  KEY `uid_idx` (`uid`),
+  CONSTRAINT `FK_UIDimages` FOREIGN KEY (`uid`) REFERENCES `user` (`uid`) ON DELETE SET NULL ON UPDATE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=204 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `images`
+--
+
+LOCK TABLES `images` WRITE;
+/*!40000 ALTER TABLE `images` DISABLE KEYS */;
+/*!40000 ALTER TABLE `images` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -160,7 +187,7 @@ CREATE TABLE `orderproduct` (
   KEY `Fk_product_idx` (`PID`),
   CONSTRAINT `Fk_order` FOREIGN KEY (`OID`) REFERENCES `orders` (`OID`) ON DELETE NO ACTION ON UPDATE CASCADE,
   CONSTRAINT `Fk_product` FOREIGN KEY (`PID`) REFERENCES `product` (`PID`) ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -169,6 +196,7 @@ CREATE TABLE `orderproduct` (
 
 LOCK TABLES `orderproduct` WRITE;
 /*!40000 ALTER TABLE `orderproduct` DISABLE KEYS */;
+INSERT INTO `orderproduct` VALUES (7,2,'1','239'),(8,1,'1','999'),(8,30,'1','399'),(9,1,'1','999'),(9,30,'1','399'),(10,1,'1','999'),(10,30,'1','399'),(11,1,'2','1998'),(11,2,'1','239'),(12,1,'1','999'),(12,2,'1','239'),(13,1,'1','999'),(13,2,'1','239'),(14,1,'3','2997'),(14,2,'1','239'),(14,28,'1','399'),(15,1,'3','2997'),(15,2,'1','239'),(15,28,'1','399'),(17,29,'2','1398'),(18,3,'1','249'),(18,29,'1','699');
 /*!40000 ALTER TABLE `orderproduct` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -189,8 +217,8 @@ CREATE TABLE `orders` (
   `PaymentMethod` int(11) NOT NULL,
   PRIMARY KEY (`OID`),
   KEY `FK_UIDOrder_idx` (`UID`),
-  CONSTRAINT `FK_UIDOrder` FOREIGN KEY (`UID`) REFERENCES `user` (`UID`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+  CONSTRAINT `FK_UIDOrder` FOREIGN KEY (`UID`) REFERENCES `user` (`UID`) ON DELETE NO ACTION ON UPDATE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -199,8 +227,33 @@ CREATE TABLE `orders` (
 
 LOCK TABLES `orders` WRITE;
 /*!40000 ALTER TABLE `orders` DISABLE KEYS */;
-INSERT INTO `orders` VALUES (1,1,'2018-03-23 13:08:29','','0000-00-00 00:00:00',2,2);
+INSERT INTO `orders` VALUES (2,1,'2018-05-04 06:57:25','hejsan','0000-00-00 00:00:00',1,1),(7,6,'2018-06-11 22:00:00','kina_persson@hotmail.com','2018-06-11 22:00:00',1,1),(8,7,'2018-06-12 22:00:00','kina_persson@hotmail.com','2018-06-12 22:00:00',1,1),(9,7,'2018-06-12 22:00:00','abc','2018-06-12 22:00:00',1,1),(10,7,'2018-06-12 22:00:00','abc','2018-06-12 22:00:00',1,1),(11,7,'2018-06-12 22:00:00','abc','2018-06-12 22:00:00',1,1),(12,8,'2018-06-12 22:00:00','iowdj','2018-06-12 22:00:00',1,1),(13,8,'2018-06-12 22:00:00','dwljoi','2018-06-12 22:00:00',1,1),(14,8,'2018-06-12 22:00:00','oko','2018-06-12 22:00:00',1,1),(15,8,'2018-06-12 22:00:00','oko','2018-06-12 22:00:00',1,1),(17,6,'2018-06-12 22:00:00','okok','2018-06-12 22:00:00',1,1),(18,6,'2018-06-12 22:00:00','kungsgatan','2018-06-12 22:00:00',1,2);
 /*!40000 ALTER TABLE `orders` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `pageinfo`
+--
+
+DROP TABLE IF EXISTS `pageinfo`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `pageinfo` (
+  `pageid` int(11) NOT NULL,
+  `aboutus` varchar(250) NOT NULL,
+  `contactus` varchar(100) NOT NULL,
+  PRIMARY KEY (`pageid`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `pageinfo`
+--
+
+LOCK TABLES `pageinfo` WRITE;
+/*!40000 ALTER TABLE `pageinfo` DISABLE KEYS */;
+INSERT INTO `pageinfo` VALUES (0,'Wooden Clogs Crafted In Sweden! You have now reached the homepage for the factory that produce the famous wooden clogs from Moheda, Sweden. Here you find the traditional swedish wooden clogs, soft clogs as well as high fashion clogs.','<p>Phone: 08-123 123</p><p>E-mail: hej@clogstore.se</p>');
+/*!40000 ALTER TABLE `pageinfo` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -278,7 +331,7 @@ CREATE TABLE `prodcat` (
 
 LOCK TABLES `prodcat` WRITE;
 /*!40000 ALTER TABLE `prodcat` DISABLE KEYS */;
-INSERT INTO `prodcat` VALUES (1,1),(1,2),(2,3),(3,1),(3,4),(1,4);
+INSERT INTO `prodcat` VALUES (28,3),(28,4),(30,1),(1,2),(2,3),(31,4),(3,1),(29,4),(33,4);
 /*!40000 ALTER TABLE `prodcat` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -292,11 +345,11 @@ DROP TABLE IF EXISTS `product`;
 CREATE TABLE `product` (
   `PID` int(11) NOT NULL AUTO_INCREMENT,
   `Title` varchar(45) COLLATE utf8_unicode_ci NOT NULL,
-  `Description` varchar(45) COLLATE utf8_unicode_ci NOT NULL,
+  `Description` varchar(500) COLLATE utf8_unicode_ci NOT NULL,
   `Price` float NOT NULL,
-  `Image` varchar(45) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `Image` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`PID`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=34 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -305,7 +358,7 @@ CREATE TABLE `product` (
 
 LOCK TABLES `product` WRITE;
 /*!40000 ALTER TABLE `product` DISABLE KEYS */;
-INSERT INTO `product` VALUES (1,'Moheda Kats','Nice clog ',999,'media/pid1.jpg'),(2,'Moheda Molly','Nice wood clog',239,'media/pid2.jpg'),(3,'Moheda Anton','Classic clog',249,'media/pid3.jpg');
+INSERT INTO `product` VALUES (1,'Moheda Kats','Retro clog with open front part.',999,'media/pid1.jpg'),(2,'Moheda Molly','A lovely wooden clog with adjustable straps.',239,'media/pid2.jpg'),(3,'Moheda Anton','Classic clog in black leather.',249,'media/pid3.jpg'),(28,'Moheda Molly ','Woodenclog- sandal with backstrap.',399,'media/4c4a0b5f21e4b5a282fc498e788ca986.jpg'),(29,'Moheda Pegasus','A lovely wooden clog in soft PullUp leather. ',699,'media/9c6b1bdedbcc2ff728a70223f6f602a0.jpg'),(30,'Moheda Royal','Retro slippers. 40s are back. Cozy and comfortable.',399,'media/a7475a9a4eed86d1fc0980a36f0742e3.jpg'),(31,'Moheda Britt','Wooden clog sandal with open front part.',499,'media/aff6467062a7a59e70a4af4624567544.jpg'),(33,'Moheda Sara','A lovely wooden clog in soft PullUp leather. ',499,'media/699e1f335b8b2ffd139255fef9b73436.jpg');
 /*!40000 ALTER TABLE `product` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -332,7 +385,7 @@ CREATE TABLE `size` (
 
 LOCK TABLES `size` WRITE;
 /*!40000 ALTER TABLE `size` DISABLE KEYS */;
-INSERT INTO `size` VALUES (1,32,21),(1,33,5),(2,37,6),(2,38,9),(2,39,0),(3,40,7),(3,41,7),(3,42,7);
+INSERT INTO `size` VALUES (1,32,21),(1,33,5),(2,37,6),(2,38,9),(2,39,0),(3,40,7),(3,41,7),(3,42,7),(28,25,8),(28,26,8),(28,27,8),(28,28,9),(28,29,10),(29,40,10),(29,41,10),(29,42,10),(30,40,10),(30,41,10),(30,42,10),(31,37,21),(31,38,8),(31,39,17),(33,37,21),(33,38,8),(33,39,17);
 /*!40000 ALTER TABLE `size` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -344,14 +397,15 @@ DROP TABLE IF EXISTS `user`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `user` (
-  `UID` int(11) NOT NULL AUTO_INCREMENT,
-  `Name` varchar(45) COLLATE utf8_unicode_ci NOT NULL,
-  `Email` varchar(45) COLLATE utf8_unicode_ci NOT NULL,
-  `Password` varchar(45) COLLATE utf8_unicode_ci NOT NULL,
-  `isAdmin` bit(1) NOT NULL DEFAULT b'0',
-  PRIMARY KEY (`UID`),
-  UNIQUE KEY `Email_UNIQUE` (`Email`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+  `uid` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(45) COLLATE utf8_unicode_ci NOT NULL,
+  `email` varchar(45) COLLATE utf8_unicode_ci NOT NULL,
+  `password` varchar(45) COLLATE utf8_unicode_ci NOT NULL,
+  `userlevel` int(11) NOT NULL,
+  `phone` varchar(45) COLLATE utf8_unicode_ci NOT NULL,
+  PRIMARY KEY (`uid`),
+  UNIQUE KEY `Email_UNIQUE` (`email`)
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -360,7 +414,7 @@ CREATE TABLE `user` (
 
 LOCK TABLES `user` WRITE;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
-INSERT INTO `user` VALUES (1,'Robin','robin@gmail.com','fisken',''),(2,'Marie','marie@gmail.com','hejsan',''),(3,'Preeti','preti@gmail.com','hoppsan',''),(4,'Kina','kina@gmail.com','kina','');
+INSERT INTO `user` VALUES (1,'Robin','robin@gmail.com','fisken',1,''),(2,'Marie','marie@gmail.com','hejsan',1,''),(3,'Preeti','preti@gmail.com','hoppsan',1,''),(4,'Kina','kina@gmail.com','kina',1,''),(6,'Kina Persson','kina_persson@hotmail.com','$2y$10$dKuVNr.KoywOiFHUkqf7P.qopgeR2q/DEc2qmG',1,'0736357000'),(7,'Peter','peter@peter.com','$2y$10$zS4z2tIAlsBnzJCTuMk/keaoHiznRcSBOILteY',0,'08161525'),(8,'Kina Persson','kina_peron@hotmail.com','$2y$10$f0RjiOf64zEhsioLEUIp4eg/5b89Jyal15f256',0,'0736357000');
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -373,4 +427,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-04-30 10:34:08
+-- Dump completed on 2018-06-13 16:50:24
